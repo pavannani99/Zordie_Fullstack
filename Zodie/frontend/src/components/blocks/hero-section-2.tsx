@@ -54,11 +54,11 @@ export function HeroSection() {
                                 >
                                     <h1
                                         className=" max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16">
-                                        Recruit with 10x Speed only with <span className='text-primary'>Zordie</span>
+                                        Hire Smarter, Faster, and Fairer —  <span className='text-primary'>Zordie AI</span>
                                     </h1>
                                     <p
                                         className="mt-8 max-w-2xl text-pretty text-lg">
-                                       This is a demo line Abdul please tell what to write
+                                       From screening and interviews to onboarding and workforce planning, Zordie AI empowers your team with advanced, autonomous agents that make hiring faster, fairer, and future-ready.
                                     </p>
                                     <div className="mt-12 flex items-center gap-2">
                                         <div
