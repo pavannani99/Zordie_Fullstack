@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import dash from '@/components/blocks/Dashboard.png'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { cn } from '@/lib/utils'
@@ -54,11 +54,11 @@ export function HeroSection() {
                                 >
                                     <h1
                                         className=" max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16">
-                                        Recruit with 10x Speed only with <span className='text-primary'>Zordie</span>
+                                        Hire Smarter, Faster, and Fairer —  <span className='text-primary'>Zordie AI</span>
                                     </h1>
                                     <p
                                         className="mt-8 max-w-2xl text-pretty text-lg">
-                                       This is a demo line Abdul please tell what to write
+                                       From screening and interviews to onboarding and workforce planning, Zordie AI empowers your team with advanced, autonomous agents that make hiring faster, fairer, and future-ready.
                                     </p>
                                     <div className="mt-12 flex items-center gap-2">
                                         <div
@@ -108,14 +108,14 @@ export function HeroSection() {
                                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
                              <img
                                         className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                                        src="/placeholder.svg?height=600&width=600"
+                                        src={dash}
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
                                     />
                                     <img
                                         className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                                        src="/placeholder.svg?height=600&width=600"
+                                        src={dash}
                                         alt="app screen"
                                         width="2700"
                                         height="1440"

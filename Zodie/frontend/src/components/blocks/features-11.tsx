@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Globe } from 'lucide-react'
-
+import dash from '@/components/blocks/Dashboard.png'
 import recording from '@/images/recordings.png'
 export function Features() {
     return (
@@ -20,14 +20,14 @@ export function Features() {
 
                             <div className="bg-background overflow-hidden rounded-tl-lg border-l border-t pl-2 pt-2 dark:bg-zinc-950">
                                 <img
-                                    src="/placeholder.svg?height=600&width=600"
+                                    src={dash}
                                     className="hidden dark:block"
                                     alt="payments illustration dark"
                                     width={1080}
                                     height={829}
                                 />
                                 <img
-                                    src="/placeholder.svg?height=600&width=600"
+                                    src={dash}
                                     className="shadow dark:hidden"
                                     alt="payments illustration light"
                                     width={1080}

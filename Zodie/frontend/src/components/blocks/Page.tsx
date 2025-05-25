@@ -3,46 +3,13 @@
 import Carousel from "@/components/ui/corousel"
 import { Button } from "@/components/ui/button"
 
-// Sample page components
-const CustomerService = () => (
-  <div className="max-w-4xl mx-auto p-8">
-    <h1 className="text-3xl font-bold text-orange-500 mb-6">Customer Service AI Agent</h1>
-    <p className="text-lg mb-4">This page contains detailed information about our Customer Service AI Agent.</p>
-    <Button className="bg-orange-500 hover:bg-orange-600">Learn More</Button>
-  </div>
-)
 
-const DataExtraction = () => (
-  <div className="max-w-4xl mx-auto p-8">
-    <h1 className="text-3xl font-bold text-blue-500 mb-6">Data Extraction AI Agent</h1>
-    <p className="text-lg mb-4">This page contains detailed information about our Data Extraction AI Agent.</p>
-    <Button className="bg-blue-500 hover:bg-blue-600">Learn More</Button>
-  </div>
-)
-
-const EmailTriage = () => (
-  <div className="max-w-4xl mx-auto p-8">
-    <h1 className="text-3xl font-bold text-orange-500 mb-6">Email Triage AI Agent</h1>
-    <p className="text-lg mb-4">This page contains detailed information about our Email Triage AI Agent.</p>
-    <Button className="bg-orange-500 hover:bg-orange-600">Learn More</Button>
-  </div>
-)
-
-const AppointmentManagement = () => (
-  <div className="max-w-4xl mx-auto p-8">
-    <h1 className="text-3xl font-bold text-blue-500 mb-6">Appointment Management AI Agent</h1>
-    <p className="text-lg mb-4">This page contains detailed information about our Appointment Management AI Agent.</p>
-    <Button className="bg-blue-500 hover:bg-blue-600">Learn More</Button>
-  </div>
-)
-
-const InterviewScheduler = () => (
   <div className="max-w-4xl mx-auto p-8">
     <h1 className="text-3xl font-bold text-orange-500 mb-6">Interview Scheduler AI Agent</h1>
     <p className="text-lg mb-4">This page contains detailed information about our Interview Scheduler AI Agent.</p>
     <Button className="bg-orange-500 hover:bg-orange-600">Learn More</Button>
   </div>
-)
+
 
 export default function Home() {
   return (
