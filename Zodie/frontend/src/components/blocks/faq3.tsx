@@ -26,44 +26,45 @@ interface Faq3Props {
 const faqItems = [
   {
     id: "faq-1",
-    question: "What is the return policy?",
+    question: "What is Zordie AI?",
     answer:
-      "You can return any item within 30 days of purchase for a full refund, provided it is in its original condition.",
+      "Zordie AI is an intelligent HR and hiring platform that streamlines candidate evaluation, interviews, onboarding, and workforce planning through AI agents like Prime, Optimus, Nova, and more.",
   },
   {
     id: "faq-2",
-    question: "How do I track my order?",
+    question: "What does the Prime HR agent do?",
     answer:
-      "Once your order is shipped, you will receive an email with a tracking number. You can use this number on our website to track your order.",
+      "Prime HR is responsible for advanced candidate evaluation. It verifies credentials, assesses soft and hard skills, analyzes code originality, and predicts cultural fit.",
   },
   {
     id: "faq-3",
-    question: "Do you offer international shipping?",
+    question: "How does candidate scoring work?",
     answer:
-      "Yes, we ship to most countries worldwide. Shipping costs and delivery times vary depending on the destination.",
+      "Candidates are scored using a weighted model that evaluates technical skills, experience, communication, leadership, and alignment with your company’s values.",
   },
   {
     id: "faq-4",
-    question: "Can I change my order after it has been placed?",
+    question: "Can Prime HR detect fake or AI-generated projects?",
     answer:
-      "You can change your order within 24 hours of placing it by contacting our customer service team.",
+      "Yes, Prime HR uses code originality checks and AI-content detection to identify plagiarized or auto-generated submissions.",
   },
   {
     id: "faq-5",
-    question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, PayPal, and Apple Pay.",
+    question: "Is Zordie AI suitable for startups?",
+    answer:
+      "Absolutely. Zordie AI is designed to scale with your business—from early hiring to large enterprise needs. The system is modular and customizable.",
   },
   {
     id: "faq-6",
-    question: "How can I contact customer support?",
+    question: "How secure is candidate data on Zordie AI?",
     answer:
-      "You can reach our customer support team via email at support@example.com or by calling 1-800-123-4567.",
+      "Zordie AI follows strict data privacy protocols, including encrypted storage, compliance monitoring, and audit trails for complete transparency.",
   },
   {
     id: "faq-7",
-    question: "Are there any discounts for bulk purchases?",
+    question: "Can I integrate Zordie with our current HR tools?",
     answer:
-      "Yes, we offer discounts for bulk purchases. Please contact our sales team for more information.",
+      "Yes, Zordie supports integrations with popular HRMS, ATS, calendar, and messaging tools to ensure a seamless workflow.",
   },
 ];
 

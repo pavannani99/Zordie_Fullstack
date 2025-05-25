@@ -4,17 +4,19 @@ import HeroAgent from "@/components/blocks/heroAgentPHR"
 import Navbar from "@/components/ui/nav"
 import { Footerdemo } from "@/demo/fs"
 import { GradientHeadingDemo } from "@/demo/gradientHeadDemo"
-
+import { Marquee } from "@/components/ui/marqueeText"
+import dash from "@/components/blocks/Dashboard.png"
 import {Bolt,CopyPlus,Layers2,Files} from 'lucide-react'
+import nova from '@/images/nova.png'
 
 export const NovaPage=()=>{
     return(
         <div>
         <Navbar></Navbar>
          <HeroAgent
-          heading="Meet Your AI Agents"
-          description="Help candidates find and choose you faster. Empower your recruiters and managers — all with AI."
-          image="/placeholder.svg?height=600&width=600"
+          heading="Meet Your AI Agent"
+          description="Nova transforms interviews into insightful, unbiased evaluations. It guides interviewers live, ensures thorough coverage, and creates summary reports with strengths and concerns—turning every interaction into measurable data"
+          image={nova}
           item={{
             label: "Nova",
             agents: [
@@ -25,6 +27,7 @@ export const NovaPage=()=>{
               { label: "Onix", to: "/onix", icon: <Files size={16} className="opacity-60" /> },
             ],
           }}></HeroAgent>
+              <Marquee text='NOVA'></Marquee>
         <GradientHeadingDemo></GradientHeadingDemo>
         <Features></Features>
         <Footerdemo></Footerdemo>

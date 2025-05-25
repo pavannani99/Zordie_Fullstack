@@ -1,47 +1,48 @@
 import { Faq3 } from "@/components/blocks/faq3"
 
 const demoData = {
-  heading: "Frequently asked questions",
+  heading: "Frequently Asked Questions",
   description:
-    "Everything you need to know about shadcnblocks. Can't find the answer you're looking for? Feel free to contact our support team.",
+    "Everything you need to know about Zordie AI and our intelligent hiring agents. Can't find the answer you're looking for? Feel free to contact our support team.",
   items: [
     {
       id: "faq-1",
-      question: "What is shadcnblocks?",
+      question: "What is Zordie AI?",
       answer:
-        "shadcnblocks is a collection of ready-to-use block components built on top of shadcn/ui, designed to help you build beautiful websites faster.",
+        "Zordie AI is an intelligent HR and hiring platform powered by AI agents that automate candidate evaluation, interviews, onboarding, analytics, and compliance.",
     },
     {
       id: "faq-2",
-      question: "How do I install shadcnblocks?",
+      question: "What does the Prime HR agent do?",
       answer:
-        "shadcnblocks components are designed to be copied and pasted into your project. Simply browse the components, click on the one you want to use, and copy the code directly into your project. This gives you full control over the code and allows for easy customization.",
+        "Prime HR is responsible for advanced candidate screening. It evaluates technical and soft skills, checks code originality, verifies credentials, and predicts cultural fit.",
     },
     {
       id: "faq-3",
-      question: "Is shadcnblocks free to use?",
+      question: "How does Zordie score and rank candidates?",
       answer:
-        "Yes, shadcnblocks is open-source and free to use in both personal and commercial projects. You can customize and modify the blocks to suit your needs.",
+        "Candidates are ranked using a multi-layered scoring model that factors in experience, skills, personality alignment, and behavioral indicators. Scores are displayed via a dynamic leaderboard.",
     },
     {
       id: "faq-4",
-      question: "Can I customize the blocks?",
+      question: "Can Zordie integrate with existing HR tools?",
       answer:
-        "Absolutely! All blocks are built with customization in mind. You can modify the styling, content, and behavior through props and Tailwind CSS classes.",
+        "Yes, Zordie supports integrations with ATS, calendars, email platforms, and communication tools to ensure a smooth workflow.",
     },
     {
       id: "faq-5",
-      question: "Do you offer support?",
+      question: "Is Zordie suitable for startups and small teams?",
       answer:
-        "Yes, we provide support through our GitHub repository where you can report issues, suggest features, or ask questions about implementation.",
+        "Absolutely. Zordie’s modular setup allows startups to scale hiring operations efficiently, with no overhead or technical complexity.",
     },
   ],
   supportHeading: "Still have questions?",
   supportDescription:
-    "Can't find the answer you're looking for? Our support team is here to help with any technical questions or concerns.",
+    "Can't find the answer you're looking for? Our support team is here to help with anything related to Zordie AI.",
   supportButtonText: "Contact Support",
   supportButtonUrl: "https://mail.google.com/mail/?view=cm&to=abdul@zordie.com",
 };
+
 
 function Faq3Demo() {
   return <Faq3 {...demoData} />;

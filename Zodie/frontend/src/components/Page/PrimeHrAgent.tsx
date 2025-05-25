@@ -8,7 +8,8 @@ import { FeaturesSectionWithHoverEffectsDemo } from "@/demo/FeatureDemo"
 import { Footerdemo } from "@/demo/fs"
 import { GradientHeadingDemo } from "@/demo/gradientHeadDemo"
 import WhatsIncludedSection from "@/demo/WhatIncluded"
-
+import dash from "@/components/blocks/Dashboard.png"
+import prime from '@/images/prime.png'
 import {Bolt,CopyPlus,Layers2,Files} from 'lucide-react'
 
 
@@ -16,11 +17,11 @@ export const PrimeHrPage=()=>{
     return(
         <div className="relative bg-[radial-gradient(120%_120%_at_50%_100%,rgba(253,186,116,0.8)_0%,white_85%)]">
         <Navbar></Navbar>
-        <HeroParallaxDemo></HeroParallaxDemo>
+        {/* <HeroParallaxDemo></HeroParallaxDemo> */}
               <HeroAgent
                       heading="Meet Your AI Agents"
-                      description="Help candidates find and choose you faster. Empower your recruiters and managers — all with AI."
-                      image="/placeholder.svg?height=600&width=600"
+                      description="Prime is your AI-powered talent assessor. It benchmarks candidates across technical depth, cultural alignment, and potential—giving hiring teams a leaderboard of best-fit individuals through verified data and deep skill analysis."
+                      image={prime}
                       item={{
                         label: "PrimeHR",
                         agents: [
@@ -34,7 +35,7 @@ export const PrimeHrPage=()=>{
         <Marquee text='PrimeHR'></Marquee>
         <GradientHeadingDemo></GradientHeadingDemo>
         <FeaturesSectionWithHoverEffectsDemo></FeaturesSectionWithHoverEffectsDemo>
-        <WhatsIncludedSection></WhatsIncludedSection>
+        {/* <WhatsIncludedSection></WhatsIncludedSection> */}
         <Footerdemo></Footerdemo>
         </div>
     )

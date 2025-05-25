@@ -3,56 +3,61 @@
 import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-// Placeholder image URL instead of imported dashboard image
+import dash from '@/components/blocks/Dashboard.png'
+import nova from '@/images/nova.png'
+import prime from '@/images/prime.png'
+import archie from '@/images/archie.png'
+import optimus from '@/images/optimus.png'
+import onix from '@/images/onix.png'
 // Sample data for the carousel
 const cardsData = [
   {
     id: 1,
     category: "PRIME HR (The Brain)",
     title: "Central of Control",
-    workflows: ["Understand HR Prompts", "Orchestrates Tasks", "Tracks Progress"],
+    workflows: ["Collect & Verify", "Score & Rank", "Select Top Talent"],
     path: "/prime",
-    bgImage: "/placeholder.svg?height=300&width=600",
+    bgImage:prime
   },
   {
     id: 2,
     category: "OPTIMUS",
-    title: "Pre-Hiring Execution",
-    workflows: ["Sales Order Data Extraction", "Invoice Data Extraction", "Lab Report Data Extraction"],
-    path: "/data-extraction",
-    bgColor: "from-blue-500 to-blue-600",
+    title: "From Resume to Retention, Optimized",
+    workflows: ["Understand Needs", "Match & Outreach", "Predict & Act"],
+    path: "/optimus",
+    bgImage: optimus
   },
   {
     id: 3,
     category: "NOVA",
-    title: "Interview + HR Round",
-    workflows: ["Categorization of Emails", "Email Forwarding", "Auto Reply"],
-    path: "/email-triage",
-    bgColor: "from-orange-500 to-orange-600",
+    title: "Intelligent Interviews. Real-time Insights.",
+    workflows: ["Plan & Schedule", "Guide & Analyze", "Summarize & Compare"],
+    path: "/nova",
+    bgImage: nova
   },
   {
     id: 4,
     category: "ARCHIE",
-    title: "Appointment Management AI Agent",
-    workflows: ["Appointment Scheduling", "Appointment Setting", "Appointment Coordination"],
-    path: "/appointment-management",
-    bgColor: "from-blue-500 to-blue-600",
+    title: "Analytics That Speak HR.",
+    workflows: ["Track Funnel", "Analyze Patterns", "Report & Recommend"],
+    path: "/archie",
+    bgImage: archie
   },
   {
     id: 5,
     category: "MAXI",
-    title: "Interview Scheduler AI Agent",
-    workflows: ["Appointment Scheduling", "Candidate Screening", "Interview Coordination"],
-    path: "/interview-scheduler",
-    bgColor: "from-orange-500 to-orange-600",
+    title: "From Day One to Day 90, Seamlessly Guided.",
+    workflows: ["Personalize Onboarding", "Monitor Progress", "Support & Retain"],
+    path: "/maxi",
+    bgImage: dash
   },
   {
     id:6,
     category: "ONIX",
-    title: "Interview Scheduler AI Agent",
-    workflows: ["Appointment Scheduling", "Candidate Screening", "Interview Coordination"],
-    path: "/interview-scheduler",
-    bgColor: "from-orange-500 to-orange-600",
+    title: "Compliance, Ethics, and Integrity—Automated.",
+    workflows: ["Verify & Screen", "Detect & Alert", "Audit & Report"],
+    path: "/onix",
+    bgImage: onix
   }
 ]
 
@@ -111,7 +116,7 @@ export default function Carousel() {
           >
             {cardsData.map((card) => (
               <div key={card.id} className="px-2" style={{ width: `${100 / cardsData.length}%` }}>
-                <div className="bg-secondary opacity-70 rounded-lg overflow-hidden h-full flex flex-col">
+                <div className="bg-cyan-300 opacity-70 rounded-lg overflow-hidden h-full flex flex-col">
                   <div className={`h-32 relative overflow-hidden bg-cover bg-center`}
                   style={{ backgroundImage: `url(${card.bgImage})` }}>
                     <div className="absolute inset-0 opacity-30">

@@ -9,11 +9,12 @@ import Logo from '@/images/Logo.png'
 import platform from '@/images/Platform.png'
 import solutions from '@/images/Solutions.png'
 import agents from '@/images/Agents.png'
-
+import resource from '@/images/resources.jpg'
+import about from '@/images/about.jpg'
 const menuItems = [
   {
     name: "Platform",
-    href: "#",
+    href: "/",
     megaMenu: {
       title: "Agentic Automation",
       description: "Learn more about the next generation of process automation",
@@ -25,7 +26,7 @@ const menuItems = [
   },
   {
     name: "AI Agents",
-    href: "#",
+    href: "/prime",
     megaMenu: {
       title: "AI Agents",
       description: "Discover our powerful AI agents for your business",
@@ -59,7 +60,7 @@ const menuItems = [
     megaMenu: {
       title: "Resources",
       description: "Learn and grow with our comprehensive resources",
-      image: "/placeholder.svg?height=300&width=300",
+      image: resource,
       items: [
         { name: "Documentation", href: "#" },
         { name: "Blog", href: "#" },
@@ -75,7 +76,7 @@ const menuItems = [
     megaMenu: {
       title: "About Us",
       description: "Learn more about our company and mission",
-      image: "/placeholder.svg?height=300&width=300",
+      image:about,
       items: [
         { name: "Our Story", href: "#" },
         { name: "Team", href: "#" },
@@ -168,12 +169,12 @@ export default function Navbar() {
             </div>
             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
               <Button asChild variant="outline" size="sm">
-                <Link to="login">
+                <Link to="/login">
                   <span>Login</span>
                 </Link>
               </Button>
               <Button asChild size="sm">
-                <Link to="signup">
+                <Link to="/signup">
                   <span>Sign Up</span>
                 </Link>
               </Button>

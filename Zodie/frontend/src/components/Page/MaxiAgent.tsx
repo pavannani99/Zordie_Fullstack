@@ -1,10 +1,12 @@
-"use client"
+"use-client"
 import { Features } from "@/components/blocks/features-11"
 import HeroAgent from "@/components/blocks/heroAgentPHR"
 import Navbar from "@/components/ui/nav"
 import { Footerdemo } from "@/demo/fs"
 import { GradientHeadingDemo } from "@/demo/gradientHeadDemo"
 import {Bolt,CopyPlus,Layers2,Files} from 'lucide-react'
+import dash from "@/components/blocks/Dashboard.png"
+import { Marquee } from "@/components/ui/marqueeText"
 
 export const MaxiPage=()=>{
     return(
@@ -12,8 +14,8 @@ export const MaxiPage=()=>{
         <Navbar></Navbar>
           <HeroAgent
                   heading="Meet Your AI Agents"
-                  description="Help candidates find and choose you faster. Empower your recruiters and managers — all with AI."
-                  image="/placeholder.svg?height=600&width=600"
+                  description="Maxi ensures new hires settle in and succeed. By customizing onboarding paths and tracking progress in real time, Maxi flags early struggles, promotes mentorship, and reduces ramp-up time with proactive support."
+                  image={dash}
                   item={{
                     label: "Maxi",
                     agents: [
@@ -24,6 +26,7 @@ export const MaxiPage=()=>{
                       { label: "Onix", to: "/onix", icon: <Files size={16} className="opacity-60" /> },
                     ],
                   }}></HeroAgent>
+                      <Marquee text='MAXI'></Marquee>
         <GradientHeadingDemo></GradientHeadingDemo>
         <Features></Features>
         <Footerdemo></Footerdemo>

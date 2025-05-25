@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import dash from '@/components/blocks/Dashboard.png'
 import { Button } from '@/components/ui/button'
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { cn } from '@/lib/utils'
@@ -108,14 +108,14 @@ export function HeroSection() {
                                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
                              <img
                                         className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                                        src="/placeholder.svg?height=600&width=600"
+                                        src={dash}
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
                                     />
                                     <img
                                         className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                                        src="/placeholder.svg?height=600&width=600"
+                                        src={dash}
                                         alt="app screen"
                                         width="2700"
                                         height="1440"
