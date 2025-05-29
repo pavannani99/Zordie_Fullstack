@@ -1,1 +1,37 @@
-.env
+
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Uploads and test data
+uploads/
+test_data/
+sample_resume.pdf
+
+# Test files
+test_*.py
+show_integration.py
+generate_test_data.py
+demo_integration.py
+check_jobs.py
+test_form.html
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Output files
+../output/

@@ -2,17 +2,20 @@ from typing import Any, Dict, List, Optional
 import os
 import json
 import shutil
+import time
 from pathlib import Path
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status, Query
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status, Query, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 import logging
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from fastapi.responses import JSONResponse
 
 from app import schemas
 from app.api import deps
 from app.crud import crud_job, crud_job_application, resume_analysis
 from app.models.user import User
 from app.utils.resume_analyzer import ResumeAnalyzer
+from app.middleware.rate_limit import rate_limiter
 
 
 class AnalysisSummary(BaseModel):
@@ -113,70 +116,49 @@ OUTPUT_DIR = Path("./output")
 UPLOAD_DIR.mkdir(exist_ok=True)
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-@router.post("/test-analyze", response_model=Dict[str, Any])
-async def test_analyze_resume(
-    *,
-    resume: UploadFile = File(...),
-) -> Any:
-    """
-    Test endpoint for analyzing a resume against a sample job description.
-    This endpoint doesn't require authentication and is for testing purposes only.
-    
-    This endpoint accepts a resume file upload and analyzes it against a sample
-    job description to demonstrate the integration with the data science component.
-    
-    Parameters:
-    - resume: PDF file containing the user's resume
-    
-    Returns:
-    - Dictionary containing analysis results
-    """
-    try:
-        # Save the uploaded resume
-        resume_path = UPLOAD_DIR / "test_resume.pdf"
-        with open(resume_path, "wb") as buffer:
-            shutil.copyfileobj(resume.file, buffer)
-        
-        # Create a sample job description
-        sample_job_title = "Senior Software Engineer"
-        sample_job_description = """
-        We are looking for a Senior Software Engineer to join our team and help us build innovative solutions.
-        The ideal candidate will have strong experience in backend development, API design, and database management.
-        You will work in an agile environment and collaborate with cross-functional teams.
-        """
-        sample_job_requirements = """
-        - 5+ years of experience in software development
-        - Proficiency in Python, JavaScript, and SQL
-        - Experience with FastAPI, React, and PostgreSQL
-        - Knowledge of cloud services (AWS, Azure, or GCP)
-        - Strong problem-solving skills and attention to detail
-        - Experience with CI/CD pipelines and DevOps practices
-        - Familiarity with microservices architecture
-        """
-        
-        # Save job description to a file
-        job_desc_path = UPLOAD_DIR / "test_job_desc.txt"
-        with open(job_desc_path, "w") as f:
-            f.write(f"{sample_job_title}\n\n{sample_job_description}\n\n{sample_job_requirements}")
-        
-        # Run the resume analysis using the ResumeAnalyzer
-        analysis_results = ResumeAnalyzer.analyze_resume(resume_path, job_desc_path)
-        
-        return analysis_results
-    
-    except Exception as e:
-        logger.error(f"Error analyzing resume: {str(e)}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error analyzing resume: {str(e)}",
-        )
-    finally:
-        resume.file.close()
+# File validation constants
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+ALLOWED_FILE_TYPES = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"]
+ALLOWED_FILE_EXTENSIONS = [".pdf", ".docx"]
 
+# Cache for analysis results (job_id + user_id -> analysis_result)
+analysis_cache = {}
+
+# Helper function for file validation
+async def validate_resume_file(resume: UploadFile) -> None:
+    """Validate resume file size and type"""
+    # Check file size
+    content = await resume.read(MAX_FILE_SIZE + 1)
+    if len(content) > MAX_FILE_SIZE:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail=f"File size exceeds the maximum allowed size of {MAX_FILE_SIZE/1024/1024}MB"
+        )
+    
+    # Reset file position after reading
+    await resume.seek(0)
+    
+    # Check file type
+    file_ext = os.path.splitext(resume.filename)[1].lower()
+    if file_ext not in ALLOWED_FILE_EXTENSIONS:
+        raise HTTPException(
+            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+            detail=f"File type {file_ext} not supported. Supported types: {', '.join(ALLOWED_FILE_EXTENSIONS)}"
+        )
+    
+    # Check content type
+    content_type = resume.content_type
+    if content_type not in ALLOWED_FILE_TYPES:
+        raise HTTPException(
+            status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
+            detail=f"Content type {content_type} not supported. Supported types: {', '.join(ALLOWED_FILE_TYPES)}"
+        )
 
 @router.post("/analyze", response_model=Dict[str, Any])
+@rate_limiter(max_requests=5, window_seconds=60)
 async def analyze_resume(
     *,
+    request: Request,
     db: AsyncSession = Depends(deps.get_db),
     resume: UploadFile = File(...),
     job_id: int = Form(...),
@@ -203,35 +185,49 @@ async def analyze_resume(
       - comprehensive_quality: Overall quality assessment
       - analysis_summary: Text summary of the analysis
     """
-    # Check if job exists
-    job = await crud_job.get(db, id=job_id)
-    if not job:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Job not found",
-        )
-    
-    # Check if analysis already exists
-    existing_analysis = await resume_analysis.get_by_user_and_job(
-        db, user_id=current_user.id, job_id=job_id
-    )
-    if existing_analysis:
-        # Return existing analysis
-        return existing_analysis.analysis_data
-    
     try:
-        # Save the uploaded resume
-        resume_path = UPLOAD_DIR / f"resume_{current_user.id}_{job_id}.pdf"
+        # Validate the uploaded file
+        await validate_resume_file(resume)
+        
+        # Check cache first
+        cache_key = f"{current_user.id}_{job_id}"
+        if cache_key in analysis_cache:
+            logger.info(f"Using cached analysis results for user {current_user.id} and job {job_id}")
+            return analysis_cache[cache_key]
+        
+        # Get job details
+        job = await crud_job.get(db, id=job_id)
+        if not job:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Job with ID {job_id} not found",
+            )
+        
+        # Save the uploaded resume with a unique filename
+        user_id = current_user.id
+        timestamp = int(time.time())
+        filename = f"{user_id}_{job_id}_{timestamp}.pdf"
+        resume_path = UPLOAD_DIR / filename
+        
         with open(resume_path, "wb") as buffer:
             shutil.copyfileobj(resume.file, buffer)
         
-        # Save job description to a file
-        job_desc_path = UPLOAD_DIR / f"job_desc_{job_id}.txt"
-        with open(job_desc_path, "w") as f:
-            f.write(f"{job.title}\n\n{job.description}\n\n{job.requirements}")
+        # Extract job details for analysis
+        job_description = job.description
+        required_skills = [skill.name for skill in job.skills] if job.skills else []
         
-        # Run the resume analysis using the ResumeAnalyzer
-        analysis_results = ResumeAnalyzer.analyze_resume(resume_path, job_desc_path)
+        # Initialize the resume analyzer
+        analyzer = ResumeAnalyzer()
+        
+        # Analyze the resume
+        analysis_results = analyzer.analyze_resume_for_job(
+            resume_path=str(resume_path),
+            job_description=job_description,
+            required_skills=required_skills
+        )
+        
+        # Cache the results
+        analysis_cache[cache_key] = analysis_results
         
         # Save the analysis results to the database
         analysis_obj = schemas.ResumeAnalysisCreate(
@@ -260,6 +256,7 @@ async def analyze_resume(
         )
     finally:
         resume.file.close()
+
 
 @router.get("/summary/{job_id}", response_model=AnalysisSummary)
 async def get_analysis_summary(
@@ -406,12 +403,12 @@ async def get_analysis_results(
     return await get_analysis_results_internal(job_id, db, current_user)
 
 
-@router.get("/user/analyses", response_model=List[schemas.ResumeAnalysis])
+@router.get("/user/analyses", response_model=List[Dict[str, Any]])
 async def get_user_analyses(
     db: AsyncSession = Depends(deps.get_db),
     current_user: User = Depends(deps.get_current_active_user),
-    skip: int = 0,
-    limit: int = 100,
+    skip: int = Query(0, ge=0),
+    limit: int = Query(20, ge=1, le=100),
 ) -> Any:
     """
     Get all resume analyses for the current user.
@@ -422,11 +419,11 @@ async def get_user_analyses(
     return analyses
 
 
-@router.get("/user/top-matches", response_model=List[TopJobMatch])
+@router.get("/top-matches", response_model=List[TopJobMatch])
 async def get_top_job_matches(
     db: AsyncSession = Depends(deps.get_db),
     current_user: User = Depends(deps.get_current_active_user),
-    limit: int = 5,
+    limit: int = Query(5, ge=1, le=20),
 ) -> Any:
     """
     Get top job matches for the current user based on resume analysis scores.
@@ -553,17 +550,17 @@ async def compare_job_analyses(
     job_titles = []
     
     for job_id in job_ids:
-        # Get job info
-        job = await crud_job.get(db, id=job_id)
-        if not job:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Job with ID {job_id} not found",
-            )
-        job_titles.append(job.title)
-        
-        # Get analysis for this job
         try:
+            # Get job info
+            job = await crud_job.get(db, id=job_id)
+            if not job:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail=f"Job with ID {job_id} not found",
+                )
+            job_titles.append(job.title)
+            
+            # Get analysis for this job
             analysis_results = await get_analysis_results_internal(job_id, db, current_user)
             analyses_data.append(analysis_results)
         except HTTPException as e:
