@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HeroSection } from './components/blocks/hero-section-2'
 import { LandingPage } from './components/Page/LandingPage'
 import { PrimeHrPage } from './components/Page/PrimeHrAgent'
 import { OptimusPage } from './components/Page/OptimusAgent'
@@ -10,6 +8,9 @@ import { ArchiePage } from './components/Page/ArchieAgent'
 import { OnixPage } from './components/Page/OnixAgent'
 import { Login, Signup } from './components/Page/Login'
 import TestPage from './components/TestPage'
+import { About } from './components/ui/about-3'
+import { AboutUs } from './components/Page/AboutUs'
+import { Resource } from './components/Page/ResourcePage'
 function App() {
   return (
     <>
@@ -26,6 +27,8 @@ function App() {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/test' element={<TestPage/>}></Route>
+        <Route path='/about' element={<AboutUs/>}></Route>
+        <Route path='/resource' element={<Resource/>}></Route>
       </Routes>
     </BrowserRouter>
     </>

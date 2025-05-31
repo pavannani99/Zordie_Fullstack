@@ -80,6 +80,223 @@
     --animate-accordion-down: accordion-down 0.2s ease-out;
     --animate-accordion-up: accordion-up 0.2s ease-out}
 }
+@layer components {
+  .fluid-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fluid-card::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .fluid-card:hover::before {
+    top: 0;
+    opacity: 1;
+  }
+
+  .fluid-card > * {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+
+  .fluid-card:hover > * {
+    color: white;
+  }
+
+  .fluid-card:hover .card-image {
+    transform: scale(1.05);
+  }
+
+ .gradient-bg {
+  background: radial-gradient(150% 80% at 50% 50%, rgba(243, 176, 128, 1) 0%, rgba(243, 152, 60, 1) 100%);
+}
+
+
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 154, 0, 0.1) 0%,
+      rgba(255, 193, 7, 0.05) 25%,
+      rgba(255, 235, 59, 0.02) 50%,
+      transparent 75%
+    );
+  }
+
+  .featured-gradient {
+    background: linear-gradient(135deg, #4facfe 0%, #002ffe 25%, #002ffe 50%, #002ffe 75%, #4facfe 100%);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .animate-fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fluid-about-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fluid-about-card::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .fluid-about-card:hover::before {
+    top: 0;
+    opacity: 1;
+  }
+
+  .fluid-about-card > * {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+
+  .fluid-about-card:hover > * {
+    color: white;
+  }
+
+  .fluid-about-card:hover .muted-text {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .fluid-about-card:hover .outline-button {
+    border-color: white;
+    color: white;
+    background-color: transparent;
+  }
+
+  .fluid-about-card:hover .outline-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .fluid-image {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fluid-image::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(30, 64, 175, 0.8) 0%,
+      rgba(59, 130, 246, 0.8) 50%,
+      rgba(96, 165, 250, 0.8) 100%
+    );
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .fluid-image:hover::before {
+    top: 0;
+    opacity: 1;
+  }
+
+  .fluid-image img {
+    transition: transform 0.4s ease;
+  }
+
+  .fluid-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .fluid-achievements {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fluid-achievements::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .fluid-achievements:hover::before {
+    top: 0;
+    opacity: 1;
+  }
+
+  .fluid-achievements > * {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+  }
+
+  .fluid-achievements:hover > * {
+    color: white;
+  }
+
+  .fluid-achievements:hover .muted-text {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+}
+
 
 @layer base {
   * {
