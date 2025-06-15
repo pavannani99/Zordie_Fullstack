@@ -1,4 +1,4 @@
-import { Faq3 } from "@/components/blocks/faq3"
+import FAQ from "@/components/blocks/faq3"
 
 const demoData = {
   heading: "Frequently Asked Questions",
@@ -33,7 +33,7 @@ const demoData = {
       id: "faq-5",
       question: "Is Zordie suitable for startups and small teams?",
       answer:
-        "Absolutely. Zordie’s modular setup allows startups to scale hiring operations efficiently, with no overhead or technical complexity.",
+        "Absolutely. Zordie's modular setup allows startups to scale hiring operations efficiently, with no overhead or technical complexity.",
     },
   ],
   supportHeading: "Still have questions?",
@@ -41,11 +41,12 @@ const demoData = {
     "Can't find the answer you're looking for? Our support team is here to help with anything related to Zordie AI.",
   supportButtonText: "Contact Support",
   supportButtonUrl: "https://mail.google.com/mail/?view=cm&to=abdul@zordie.com",
-};
-
-
-function Faq3Demo() {
-  return <Faq3 {...demoData} />;
 }
 
-export { Faq3Demo };
+export const FaqDemo= ()=> {
+  return (
+    <main className="min-h-screen">
+      <FAQ data={demoData} />
+    </main>
+  )
+}
