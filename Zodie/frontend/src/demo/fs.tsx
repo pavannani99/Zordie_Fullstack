@@ -26,7 +26,7 @@ function Footerdemo() {
   }, [isDarkMode])
 
   return (
-    <footer className="relative border-t border-t-blue-400 bg-background text-foreground transition-colors duration-300">
+    <footer className="relative border-t border-t-primary-400  text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
@@ -38,7 +38,7 @@ function Footerdemo() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm border-blue-200"
+                className="pr-12 backdrop-blur-sm border-primary-200"
               />
               <Button
                 type="submit"
@@ -190,7 +190,7 @@ function Footerdemo() {
             </div> */}
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-t-blue-400 pt-8 text-center md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-t-primary-400 pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">
             © 2025 Zordie AI . All rights reserved.
           </p>

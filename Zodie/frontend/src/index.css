@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: linear-gradient(to bottom, hsl(24, 100%, 65%), white);
-    --foreground: 0 0% 3.9%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
     --card: 36 100% 98%;
     --card-foreground: 24 20% 15%;
     --popover: 36 100% 98%;
@@ -14,8 +14,8 @@
     --primary-foreground: 0 0% 100%;
     --secondary:220 100% 50%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 24 30% 90%;
-    --muted-foreground: 24 20% 40%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
     --accent: 220 100% 95%;
     --accent-foreground: 220 100% 30%;
     --destructive: 0 85% 60%;
@@ -36,10 +36,12 @@
     --color-2: 270 100% 63%;
     --color-3: 210 100% 63%;
     --color-4: 195 100% 63%;
-    --color-5: 90 100% 63%}
+    --color-5: 90 100% 63%;
+    --brand: 266 100% 50%;
+    --brand-foreground: 270 100% 98%}
   .dark {
-     --background: 24 20% 10%;           
-     --foreground: 36 100% 95%;
+     --background: 240 10% 3.9%;           
+     --foreground: 0 0% 98%;
 
      --primary: 24 100% 50%;               
      --primary-foreground: 0 0% 100%;
@@ -53,8 +55,8 @@
       --popover: 24 20% 15%;
       --popover-foreground: 36 100% 95%;
 
-      --muted: 24 15% 20%;
-      --muted-foreground: 36 30% 70%;
+      --muted: 240 3.7% 15.9%;
+      --muted-foreground: 240 5% 64.9%;
 
       --accent: 36 100% 25%;
       --accent-foreground: 36 100% 95%;
@@ -72,10 +74,11 @@
     --chart-5: 340 75% 55%
   ;
     --sky-400: #38bdf8;
-    --sky-500: #0ea5e9}
+    --sky-500: #0ea5e9;
+    --brand: 266 70% 60%;
+    --brand-foreground: 270 100% 98%}
   .theme {
-    --animate-marquee: marquee var(--duration, 30s) linear infinite
-  ;
+    --animate-marquee: marquee var(--duration) linear infinite;
     --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
     --animate-accordion-down: accordion-down 0.2s ease-out;
     --animate-accordion-up: accordion-up 0.2s ease-out}
@@ -122,8 +125,6 @@
  .gradient-bg {
   background: radial-gradient(150% 80% at 50% 50%, rgba(243, 176, 128, 1) 0%, rgba(243, 152, 60, 1) 100%);
 }
-
-
 
   .hero-gradient {
     background: linear-gradient(
@@ -297,7 +298,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -336,5 +336,38 @@
   to {
     height: 0;
     }
+  }
+  @keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+    }
+  to {
+    transform: rotate(360deg);
+    }
+  }
+  @keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+    }
+  to {
+    transform: rotate(-360deg);
+    }
+  }
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
