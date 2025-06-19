@@ -16,16 +16,18 @@ import ScrollAnimationDemo from '../ui/CSD'
 import WaitLanding from '../blocks/Waitlist'
 import PrimeFeature from '../blocks/PrimeFeatures'
 import HRAgentsDashboard from '../blocks/Hragents'
+import AIBenefitsLanding from '../blocks/AiBenefits'
 export const LandingPage=()=>{
     return(
         <div className='relative bg-[radial-gradient(120%_120%_at_50%_100%,rgba(253,186,116,0.8)_0%,white_85%)]'>
         <HeroSection></HeroSection>
-         <PrimeFeature/>
          <ZordieFeatures/>
          <ZordieFeatures1/>
+         <PrimeFeature/>
         <Flow></Flow>
         <HRAgentsDashboard/>
         <Productivity></Productivity>
+        <AIBenefitsLanding/>
        <AnimatedTestimonialsWithParticles></AnimatedTestimonialsWithParticles>
         <FaqDemo></FaqDemo>
         <Footerdemo></Footerdemo>

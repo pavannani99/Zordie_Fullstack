@@ -97,7 +97,7 @@ export default function ZordieFeatures() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
               <div className="aspect-video">
                 <iframe
-                  src="https://www.youtube.com/embed/smPos0mJvh8"
+                  src="https://www.youtube.com/embed/Vz8mNnltlAI"
                   title="Zordie AI Demo Video"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

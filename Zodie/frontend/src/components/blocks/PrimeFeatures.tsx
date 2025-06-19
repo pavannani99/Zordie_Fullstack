@@ -14,6 +14,12 @@ import {
   Send,
   Activity,
 } from "lucide-react"
+import i1 from "@/assets/prime/imag1.png"
+import i2 from "@/assets/prime/i2.png"
+import i3 from "@/assets/prime/i3.png"
+import i4 from "@/assets/prime/i4.png"
+import i5 from "@/assets/prime/i5.png"
+import i6 from "@/assets/prime/i6.png"
 
 // Animated AI Chat Component
 const AnimatedAIChat = () => {
@@ -591,7 +597,8 @@ export default function PrimeFeature() {
               </div>
             </div>
             <div className="animate-slide-in-right">
-              <AnimatedAIChat />
+            <img src={i1} alt="AI Assistant" className="w-full h-auto rounded-xl shadow-lg" />
+
             </div>
           </div>
         </div>
@@ -602,7 +609,7 @@ export default function PrimeFeature() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-              <AnimatedAnalytics />
+            <img src={i2} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">AI Driven Decisions</Badge>
@@ -654,7 +661,7 @@ export default function PrimeFeature() {
               </div>
             </div>
             <div className="animate-slide-in-right">
-              <AnimatedEmailInterface />
+            <img src={i3} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
             </div>
           </div>
         </div>
@@ -665,7 +672,7 @@ export default function PrimeFeature() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-              <AnimatedPerformanceChart />
+            <img src={i4} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">Workflow Control</Badge>
@@ -715,7 +722,7 @@ export default function PrimeFeature() {
               </div>
             </div>
             <div className="animate-slide-in-right">
-              <AnimatedTaskManager />
+            <img src={i5} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
             </div>
           </div>
         </div>
@@ -726,7 +733,7 @@ export default function PrimeFeature() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-              <AnimatedProjectDashboard />
+            <img src={i6} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">Custom Projects</Badge>

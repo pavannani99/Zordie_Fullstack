@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Plus, X } from 'lucide-react';
-
+import Logo from '@/images/Logo.png'
 const WaitLanding = () => {
   const [email, setEmail] = useState('');
   const [timeLeft, setTimeLeft] = useState({
@@ -34,35 +34,46 @@ const WaitLanding = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const faqData = [
-    {
-      question: "What is Zordie?",
-      answer: "Soonix is a premium Framer template by Temlis that helps you launch a clean, high-converting waitlist page. It's designed to grow your email list and build momentum before your product goes live.",
-    },
-    {
-      question: "What's included in this template?",
-      answer: "The template includes a complete waitlist landing page with countdown timer, email capture, mobile preview, FAQ section, and all necessary components for a successful product launch."
-    },
-    {
-      question: "How do I customize this template?",
-      answer: "You can easily customize colors, fonts, content, and layout through Framer's intuitive interface. All components are fully editable and responsive."
-    },
-    {
-      question: "Is support available?",
-      answer: "Yes, we provide comprehensive documentation and support to help you get the most out of your template."
-    },
-    {
-      question: "How much will this cost?",
-      answer: "Pricing details are available on our main website. We offer competitive rates for premium Framer templates."
-    }
-  ];
+  
+  const faqData =[
+      {
+        id: "faq-1",
+        question: "What is Zordie AI?",
+        answer:
+          "Zordie AI is an intelligent HR and hiring platform powered by AI agents that automate candidate evaluation, interviews, onboarding, analytics, and compliance.",
+      },
+      {
+        id: "faq-2",
+        question: "What does the Prime HR agent do?",
+        answer:
+          "Prime HR is responsible for advanced candidate screening. It evaluates technical and soft skills, checks code originality, verifies credentials, and predicts cultural fit.",
+      },
+      {
+        id: "faq-3",
+        question: "How does Zordie score and rank candidates?",
+        answer:
+          "Candidates are ranked using a multi-layered scoring model that factors in experience, skills, personality alignment, and behavioral indicators. Scores are displayed via a dynamic leaderboard.",
+      },
+      {
+        id: "faq-4",
+        question: "Can Zordie integrate with existing HR tools?",
+        answer:
+          "Yes, Zordie supports integrations with ATS, calendars, email platforms, and communication tools to ensure a smooth workflow.",
+      },
+      {
+        id: "faq-5",
+        question: "Is Zordie suitable for startups and small teams?",
+        answer:
+          "Absolutely. Zordie's modular setup allows startups to scale hiring operations efficiently, with no overhead or technical complexity.",
+      },
+    ]
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? -1 : index);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
@@ -74,8 +85,8 @@ const WaitLanding = () => {
         <main className="container mx-auto px-6 py-12">
           {/* Logo and Title Section */}
           <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="w-20 h-20 bg-black rounded-2xl mx-auto mb-8 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-              <span className="text-white text-3xl font-bold">S</span>
+            <div className="w-20 h-20 bg-white rounded-2xl mx-auto mb-8 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+              <span className="text-white text-3xl font-bold"><img src={Logo}></img></span>
             </div>
             
             <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-6">
