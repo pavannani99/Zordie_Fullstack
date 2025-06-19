@@ -11,6 +11,7 @@ import TestPage from './components/TestPage'
 import { About } from './components/ui/about-3'
 import { AboutUs } from './components/Page/AboutUs'
 import { Resource } from './components/Page/ResourcePage'
+import { WaitlistPage } from './components/Page/Waitlist'
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
         <Route path='/onix' element={<OnixPage/>}/>
 
         <Route path='/login' element={<Login/>}></Route>
+        <Route path='/waitlist' element={<WaitlistPage/>}></Route>
         <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/test' element={<TestPage/>}></Route>
         <Route path='/about' element={<AboutUs/>}></Route>
