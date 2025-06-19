@@ -65,7 +65,7 @@ const marqueeFeatures = [
 
 export default function AIBenefitsLanding() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-200 via-orange-300 to-orange-400 p-6 md:p-12">
+    <div className="min-h-screen p-6 md:p-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

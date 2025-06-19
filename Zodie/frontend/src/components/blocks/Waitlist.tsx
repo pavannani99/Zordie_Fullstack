@@ -68,7 +68,7 @@ const WaitLanding = () => {
       },
     ]
 
-  const toggleFaq = (index) => {
+  const toggleFaq = (index: React.SetStateAction<number>) => {
     setOpenFaq(openFaq === index ? -1 : index);
   };
 
