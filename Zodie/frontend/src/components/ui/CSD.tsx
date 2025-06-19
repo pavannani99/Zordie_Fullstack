@@ -2,7 +2,7 @@ import { ContainerScroll } from "@/components/ui/CS"
 
 export default function ScrollAnimationDemo() {
   return (
-    <div className="flex flex-col overflow-hidden bg-white min-h-screen">
+    <div className="flex flex-col overflow-hidden  min-h-screen">
       <ContainerScroll>
         <img
           src="https://framerusercontent.com/images/Tb7VqW7xHrIJevRarCi90qfwCA.png"
