@@ -137,60 +137,6 @@ export function HeroSection() {
         </>
     )
 }
-// function HeroSection({ className, ...props }: { className?: string }) {
-//     return (
-//         <section
-//             id="hero"
-//             className={cn('container pt-24 md:pt-32', className)}
-//             {...props}
-//         >
-//             <div className="grid items-center gap-8 sm:grid-cols-2">
-//                 <div>
-//                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-//                         AI-Powered Automation for Your Business
-//                     </h1>
-//                     <p className="mt-4 text-muted-foreground">
-//                         Revolutionize your workflow with our intelligent automation platform. 
-//                         Streamline tasks, boost productivity, and unlock new levels of efficiency.
-//                     </p>
-//                     <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-//                         <Button size="lg">Get Started</Button>
-//                         <Button variant="outline" size="lg">
-//                             Learn More
-//                         </Button>
-//                     </div>
-//                     <Card className="mt-8">
-//                         <CardHeader>
-//                             <CardTitle>Ready to Automate?</CardTitle>
-//                             <CardDescription>
-//                                 Enter your email to get started.
-//                             </CardDescription>
-//                         </CardHeader>
-//                         <CardContent className="grid gap-4">
-//                             <div className="grid grid-cols-1 gap-2">
-//                                 <Label htmlFor="email">Email</Label>
-//                                 <Input
-//                                     id="email"
-//                                     type="email"
-//                                     placeholder="Enter your email"
-//                                 />
-//                             </div>
-//                         </CardContent>
-//                         <CardFooter>
-//                             <Button>
-//                                 Sign Up <ArrowRight className="ml-2 h-4 w-4" />
-//                             </Button>
-//                         </CardFooter>
-//                     </Card>
-//                 </div>
-
-//                 <div className="mt-8 sm:mt-12 md:mt-20">
-//                     <ScrollAnimationDemo />
-//                 </div>
-//             </div>
-//         </section>
-//     )
-// }
 
 
 const menuItems = [
