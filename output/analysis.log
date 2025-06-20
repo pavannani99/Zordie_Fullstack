@@ -1,0 +1,14 @@
+2025-05-24 03:25:38,442 - __main__ - INFO - Initializing Resume Intelligence System components...
+2025-05-24 03:25:44,210 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-24 03:25:46,041 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2025-05-24 03:25:56,684 - __main__ - INFO - All components initialized successfully
+2025-05-24 03:25:56,688 - __main__ - INFO - Starting comprehensive analysis for Anish_Kumar_Resume.pdf
+2025-05-24 03:25:56,690 - __main__ - INFO - Step 1: Parsing documents...
+2025-05-24 03:25:56,693 - __main__ - ERROR - Error during comprehensive analysis: 'DocumentParser' object has no attribute 'parse_document'
+2025-05-24 03:30:52,416 - __main__ - INFO - Initializing Resume Intelligence System components...
+2025-05-24 03:30:54,940 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-24 03:30:55,976 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device: cpu
+2025-05-24 03:31:02,847 - __main__ - INFO - All components initialized successfully
+2025-05-24 03:31:02,850 - __main__ - INFO - Starting comprehensive analysis for Anish_Kumar_Resume.pdf
+2025-05-24 03:31:02,850 - __main__ - INFO - Step 1: Parsing documents...
+2025-05-24 03:31:02,850 - __main__ - ERROR - Error during comprehensive analysis: 'DocumentParser' object has no attribute 'parse_document'

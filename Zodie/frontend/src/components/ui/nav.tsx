@@ -56,33 +56,26 @@ const menuItems = [
   },
   {
     name: "Resources",
-    href: "#",
+    href: "/resource",
     megaMenu: {
       title: "Resources",
       description: "Learn and grow with our comprehensive resources",
       image: resource,
       items: [
-        { name: "Documentation", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Case Studies", href: "#" },
-        { name: "Webinars", href: "#" },
-        { name: "Community", href: "#" },
+        { name: "Documentation", href: "/resource" },
+        { name: "Blog", href: "/resource" },
       ],
     },
   },
   {
     name: "About",
-    href: "#",
+    href: "/about",
     megaMenu: {
       title: "About Us",
       description: "Learn more about our company and mission",
       image:about,
       items: [
-        { name: "Our Story", href: "#" },
-        { name: "Team", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Press", href: "#" },
-        { name: "Contact", href: "#" },
+        { name: "About", href: "/about" },
       ],
     },
   },
@@ -120,7 +113,7 @@ export default function Navbar() {
         <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
           <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
             <Link to="/" aria-label="home" className="flex items-center space-x-2">
-              <img src={Logo} className="h-16 md:h-20"></img>
+              <img src={Logo} className="h-8 md:h-12"></img>
             </Link>
 
             <button
@@ -174,7 +167,7 @@ export default function Navbar() {
                 </Link>
               </Button>
               <Button asChild size="sm">
-                <Link to="/signup">
+                <Link to="/waitlist">
                   <span>Sign Up</span>
                 </Link>
               </Button>

@@ -1,0 +1,39 @@
+============================================================
+RESUME QUALITY ANALYSIS REPORT
+============================================================
+
+Overall Score: 47.7/100 (Grade: F)
+
+Component Breakdown:
+------------------------------
+Skill Alignment        76.5/100 (30.0% weight)
+Project Validation     43.0/100 (25.0% weight)
+Resume Formatting      27.2/100 (15.0% weight)
+Content Trustworthiness   99.0/100 (10.0% weight)
+Credential Verification    0.0/100 (10.0% weight)
+Online Presence         0.0/100 (10.0% weight)
+
+Issues Summary: 20 total issues (Status: NEEDS_IMPROVEMENT)
+  High: 0, Medium: 4, Low: 16
+
+Key Strengths:
+---------------
+• Strong Trustworthiness (Score: 99.0/100)
+
+Areas for Improvement:
+-------------------------
+• Project Validation needs significant improvement (Score: 43.0/100)
+• Formatting needs significant improvement (Score: 27.2/100)
+• Credibility needs significant improvement (Score: 0.0/100)
+• Online Presence needs significant improvement (Score: 0.0/100)
+• Skill Alignment has multiple issues requiring attention (4 issues)
+• Formatting has multiple issues requiring attention (9 issues)
+• Credibility has multiple issues requiring attention (7 issues)
+
+Immediate Action Items:
+-------------------------
+• No specific recommendations - maintain current standards
+
+============================================================
+Report generated: 2025-05-26T21:35:09.760561
+============================================================
