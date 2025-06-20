@@ -524,6 +524,11 @@ export default function PrimeFeature() {
           to { opacity: 1; transform: translateX(0); }
         }
         
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
         }
@@ -534,6 +539,10 @@ export default function PrimeFeature() {
         
         .animate-slide-in-right {
           animation: slide-in-right 0.8s ease-out;
+        }
+        
+        .animate-slide-up {
+          animation: slide-up 0.8s ease-out;
         }
         
         .section-animate {
@@ -551,7 +560,8 @@ export default function PrimeFeature() {
       {/* Hero Section */}
       <section
         id="hero"
-        className={`section-animate ${isVisible.hero ? "visible" : ""} relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50 py-20 px-4`}
+        className={`section-animate ${isVisible.hero ? "visible" : ""} relative overflow-hidden `
+        }
       >
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in">
@@ -597,8 +607,7 @@ export default function PrimeFeature() {
               </div>
             </div>
             <div className="animate-slide-in-right">
-            <img src={i1} alt="AI Assistant" className="w-full h-auto rounded-xl shadow-lg" />
-
+              <img src={i1} alt="AI Assistant" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
             </div>
           </div>
         </div>
@@ -609,7 +618,7 @@ export default function PrimeFeature() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-            <img src={i2} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
+              <img src={i2} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">AI Driven Decisions</Badge>
@@ -661,7 +670,7 @@ export default function PrimeFeature() {
               </div>
             </div>
             <div className="animate-slide-in-right">
-            <img src={i3} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
+              <img src={i3} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
             </div>
           </div>
         </div>
@@ -672,7 +681,7 @@ export default function PrimeFeature() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-            <img src={i4} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
+              <img src={i4} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">Workflow Control</Badge>
@@ -722,7 +731,7 @@ export default function PrimeFeature() {
               </div>
             </div>
             <div className="animate-slide-in-right">
-            <img src={i5} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
+              <img src={i5} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
             </div>
           </div>
         </div>
@@ -733,7 +742,7 @@ export default function PrimeFeature() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-            <img src={i6} alt="Analytics Engine" className="w-full h-auto rounded-xl shadow-lg" />
+              <img src={i6} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">Custom Projects</Badge>

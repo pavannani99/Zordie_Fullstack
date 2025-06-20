@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
-
+import dash from '@/assets/Dashboard-1.png'
 const features = [
   {
     id: 1,
@@ -94,18 +94,23 @@ export default function ZordieFeatures() {
 
           {/* Right Side - Video */}
           <div className="lg:sticky lg:top-8">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/Vz8mNnltlAI"
-                  title="Zordie AI Demo Video"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
+  {/* Outer Card Container */}
+  <div className="p-6 rounded-3xl bg-gradient-to-br from-orange-50 via-blue-50 to-blue-100 border border-orange-200/40 shadow-xl backdrop-blur-sm ring-1 ring-blue-200/30">
+    {/* Inner Image Container */}
+    <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white ring-1 ring-orange-300/50 shadow-orange-500/10">
+      <div className="aspect-video">
+        <img
+          src={dash}
+          title="Zordie AI Demo Video"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Optional decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-orange-500/10 via-transparent to-blue-500/5 pointer-events-none"></div>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </div>

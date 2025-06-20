@@ -17,6 +17,8 @@ import WaitLanding from '../blocks/Waitlist'
 import PrimeFeature from '../blocks/PrimeFeatures'
 import HRAgentsDashboard from '../blocks/Hragents'
 import AIBenefitsLanding from '../blocks/AiBenefits'
+import Trial from '../blocks/Trial'
+import FeatureBentoGrid from '../blocks/FeatureBentoGrid'
 export const LandingPage=()=>{
     return(
         <div className='relative bg-[radial-gradient(120%_120%_at_50%_100%,rgba(253,186,116,0.8)_0%,white_85%)]'>
@@ -30,6 +32,7 @@ export const LandingPage=()=>{
         <AIBenefitsLanding/>
        <AnimatedTestimonialsWithParticles></AnimatedTestimonialsWithParticles>
         <FaqDemo></FaqDemo>
+           <FeatureBentoGrid/>
         <Footerdemo></Footerdemo>
         </div>
     )

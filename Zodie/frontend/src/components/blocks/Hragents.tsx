@@ -70,11 +70,16 @@ const HRAgentsDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Prime HR - Master Orchestrator */}
-          <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-8 text-white relative overflow-hidden">
+          <div
+  className="rounded-3xl p-8 text-white relative overflow-hidden shadow-custom"
+  style={{
+    background: 'linear-gradient(180deg, #10ad8b 1.08%, rgb(0, 33, 179) 100%)'
+  }}
+>
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
-                  <Brain className="w-10 h-10" />
+                  <Brain className="w-10 h-10 " />
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold">Prime HR</h2>
@@ -136,7 +141,10 @@ const HRAgentsDashboard = () => {
           </div>
 
           {/* Optimus - JD Generator & Analytics */}
-          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl p-8 text-white relative overflow-hidden">
+          <div className="rounded-3xl p-8 text-white relative overflow-hidden"
+          style={{
+          background: 'linear-gradient(180deg, #10ad8b 1.08%, rgb(0, 33, 179) 100%)'
+            }}>
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
@@ -202,7 +210,10 @@ const HRAgentsDashboard = () => {
           </div>
 
           {/* Maxi - Learning & Development */}
-          <div className="bg-gradient-to-br from-orange-400 to-orange-500 rounded-3xl p-8 text-white relative overflow-hidden">
+          <div className=" rounded-3xl p-8 text-white relative overflow-hidden"
+          style={{
+          background: 'linear-gradient(180deg,rgb(3, 66, 255) 1.08%, rgb(229, 179, 99) 100%)'
+            }}>
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
@@ -268,7 +279,10 @@ const HRAgentsDashboard = () => {
           </div>
 
           {/* Monica - Voice Control Agent */}
-          <div className="bg-gradient-to-br from-blue-400 to-orange-400 rounded-3xl p-8 text-white relative overflow-hidden">
+            <div className=" rounded-3xl p-8 text-white relative overflow-hidden"
+          style={{
+          background: 'linear-gradient(180deg,rgb(3, 66, 255) 1.08%, rgb(229, 179, 99) 100%)'
+            }}>
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-sm">
