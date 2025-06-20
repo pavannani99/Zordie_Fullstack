@@ -507,50 +507,80 @@ export default function PrimeFeature() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div
+      className="min-h-screen w-full"
+      style={{
+        background:
+          "linear-gradient(180deg, #000000 0.7207372167088965%, rgba(31, 145, 118, 1) 40.360349363034906%, rgb(43, 204, 166) 63.42344541807432%, rgb(35, 85, 235) 80.3603644843574%, rgb(201, 82, 8) 100%)",
+      }}
+    >
       <style jsx>{`
         @keyframes fade-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         @keyframes slide-in-left {
-          from { opacity: 0; transform: translateX(-50px); }
-          to { opacity: 1; transform: translateX(0); }
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-        
+
         @keyframes slide-in-right {
-          from { opacity: 0; transform: translateX(50px); }
-          to { opacity: 1; transform: translateX(0); }
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-        
+
         @keyframes slide-up {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
         }
-        
+
         .animate-slide-in-left {
           animation: slide-in-left 0.8s ease-out;
         }
-        
+
         .animate-slide-in-right {
           animation: slide-in-right 0.8s ease-out;
         }
-        
+
         .animate-slide-up {
           animation: slide-up 0.8s ease-out;
         }
-        
+
         .section-animate {
           opacity: 0;
           transform: translateY(30px);
           transition: all 0.8s ease-out;
         }
-        
+
         .section-animate.visible {
           opacity: 1;
           transform: translateY(0);
@@ -560,19 +590,18 @@ export default function PrimeFeature() {
       {/* Hero Section */}
       <section
         id="hero"
-        className={`section-animate ${isVisible.hero ? "visible" : ""} relative overflow-hidden `
-        }
+        className={`section-animate ${isVisible.hero ? "visible" : ""} relative overflow-hidden`}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-100 mb-6 leading-tight animate-fade-in">
             Introducing Prime
             <br />
-            <span className="bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-white bg-clip-text text-transparent">
               The Self-Evolving AI That Works For You
             </span>
           </h1>
           <p
-            className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto animate-fade-in"
+            className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto animate-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
             We design, develop, and implement automation tools that help you work smarter, not harder
@@ -583,14 +612,14 @@ export default function PrimeFeature() {
       {/* AI Assistant Section */}
       <section
         id="ai-assistant"
-        className={`section-animate ${isVisible["ai-assistant"] ? "visible" : ""} py-20 px-4 bg-gradient-to-r from-orange-50 to-blue-50`}
+        className={`section-animate ${isVisible["ai-assistant"] ? "visible" : ""} py-20 px-4`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">AI Assistant</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">One Command, Infinite Actions</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold text-white mb-6">One Command, Infinite Actions</h2>
+              <p className="text-lg text-gray-200 mb-8">
                 From managing calendars to drafting emails and summarizing meetings etc, AI assistants work around the
                 clock to keep your business running smarter and faster.
               </p>
@@ -614,7 +643,7 @@ export default function PrimeFeature() {
       </section>
 
       {/* Analytics Section */}
-      <section id="analytics" className={`section-animate ${isVisible.analytics ? "visible" : ""} py-20 px-4 bg-white`}>
+      <section id="analytics" className={`section-animate ${isVisible.analytics ? "visible" : ""} py-20 px-4`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
@@ -622,8 +651,8 @@ export default function PrimeFeature() {
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">AI Driven Decisions</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">AI-Powered Analytics Engine</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Analytics Engine</h2>
+              <p className="text-lg text-gray-200 mb-8">
                 Track everything across HR and business: hiring efficiency, payroll flow, performance, learning
                 outcomes, attrition risks. Auto-generates insights and recommends decisions.
               </p>
@@ -646,14 +675,14 @@ export default function PrimeFeature() {
       {/* Onboarding Section */}
       <section
         id="onboarding"
-        className={`section-animate ${isVisible.onboarding ? "visible" : ""} py-20 px-4 bg-gradient-to-r from-blue-50 to-orange-50`}
+        className={`section-animate ${isVisible.onboarding ? "visible" : ""} py-20 px-4`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">Onboarding</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Automated Onboarding Journeys</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold text-white mb-6">Automated Onboarding Journeys</h2>
+              <p className="text-lg text-gray-200 mb-8">
                 Drafts and sends offer letters, welcome mails, collects docs, assigns tools & training and manages the
                 entire join journey
               </p>
@@ -677,7 +706,7 @@ export default function PrimeFeature() {
       </section>
 
       {/* Workflow Control Section */}
-      <section id="workflow" className={`section-animate ${isVisible.workflow ? "visible" : ""} py-20 px-4 bg-white`}>
+      <section id="workflow" className={`section-animate ${isVisible.workflow ? "visible" : ""} py-20 px-4`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
@@ -685,8 +714,8 @@ export default function PrimeFeature() {
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">Workflow Control</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Your Control Room for Everything</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold text-white mb-6">Your Control Room for Everything</h2>
+              <p className="text-lg text-gray-200 mb-8">
                 Monitors the performance of all agents, tracks bottlenecks, and auto-corrects actions or adjusts
                 internal systems (e.g., leave flow, hiring journey, training loop) by detecting inefficiencies and
                 adapting flows in real-time or raises alerts and provide detailed reports when needed.
@@ -710,14 +739,14 @@ export default function PrimeFeature() {
       {/* Task Automation Section */}
       <section
         id="tasks"
-        className={`section-animate ${isVisible.tasks ? "visible" : ""} py-20 px-4 bg-gradient-to-r from-orange-50 to-blue-50`}
+        className={`section-animate ${isVisible.tasks ? "visible" : ""} py-20 px-4`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">Workflow Automation</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Automate repetitive tasks</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold text-white mb-6">Automate repetitive tasks</h2>
+              <p className="text-lg text-gray-200 mb-8">
                 We help you streamline internal operations by automating manual workflows like data entry, reporting,
                 and approval chains saving time and cutting down errors.
               </p>
@@ -738,7 +767,7 @@ export default function PrimeFeature() {
       </section>
 
       {/* Project Management Section */}
-      <section id="projects" className={`section-animate ${isVisible.projects ? "visible" : ""} py-20 px-4 bg-white`}>
+      <section id="projects" className={`section-animate ${isVisible.projects ? "visible" : ""} py-20 px-4`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
@@ -746,8 +775,8 @@ export default function PrimeFeature() {
             </div>
             <div className="animate-slide-in-right">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">Custom Projects</Badge>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Build Smarter Systems</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-4xl font-bold text-white mb-6">Build Smarter Systems</h2>
+              <p className="text-lg text-gray-200 mb-8">
                 Whether you're starting from scratch or enhancing an existing system, Prime breaks down goals, delegates
                 tasks to the right agents, and oversees execution aligned to your needs.
               </p>
