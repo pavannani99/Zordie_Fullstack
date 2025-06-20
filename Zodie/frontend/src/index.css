@@ -303,7 +303,7 @@
     @apply border-border;
   }
   body {
-  @apply bg-[radial-gradient(120%_120%_at_50%_100%,rgba(253,186,116,0.8)_0%,white_85%)];
+  @apply bg-[linear-gradient(140deg,_rgba(255,107,7,0.8)_25%,_rgba(255,255,255,1))]
 }
 }
 

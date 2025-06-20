@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import dash from '@/components/blocks/Dashboard.png'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { AnimatedGroup } from '@/components/ui/animated-group'
 import { cn } from '@/lib/utils'
 import { useScroll } from 'motion/react'
@@ -9,6 +12,9 @@ import { InfiniteSlider } from '../ui/infinite-slider'
 import { ProgressiveBlur } from '../ui/progressive-blur'
 import { MovingBorderDemo } from '@/demo/MovingOrderDemo'
 import Navbar from '../ui/nav'
+import ScrollAnimationDemo from '../ui/CSD'
+import { ArrowRight } from 'lucide-react'
+
 
 const transitionVariants = {
     item: {
@@ -35,8 +41,8 @@ export function HeroSection() {
         <>
             <HeroHeader />
             <main className="overflow-hidden">
-                <section >
-                    <div className="relative pt-24 pb-8">
+                <section>
+                    <div className="relative pt-12 pb-4"> {/* Reduced pt-24 to pt-12 and pb-8 to pb-4 */}
                         <div className="mx-auto max-w-5xl px-6">
                             <div className="sm:mx-auto lg:mr-auto">
                                 <AnimatedGroup
@@ -53,14 +59,14 @@ export function HeroSection() {
                                     }}
                                 >
                                     <h1
-                                        className=" max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16">
+                                        className="max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-8"> {/* Reduced lg:mt-16 to lg:mt-8 */}
                                         Hire Smarter, Faster, and Fairer —  <span className='text-primary'>Zordie AI</span>
                                     </h1>
                                     <p
-                                        className="mt-8 max-w-2xl text-pretty text-lg">
+                                        className="mt-4 max-w-2xl text-pretty text-lg"> {/* Reduced mt-8 to mt-4 */}
                                        From screening and interviews to onboarding and workforce planning, Zordie AI empowers your team with advanced, autonomous agents that make hiring faster, fairer, and future-ready.
                                     </p>
-                                    <div className="mt-12 flex items-center gap-2">
+                                    <div className="mt-8 flex items-center gap-2"> {/* Reduced mt-12 to mt-8 */}
                                         <div
                                             key={1}
                                             className="bg-foreground/10 rounded-[14px] border p-0.5">
@@ -100,26 +106,10 @@ export function HeroSection() {
                                 },
                                 ...transitionVariants,
                             }}>
-                            <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
-                                <div
-                                    aria-hidden
-                                    className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
-                                />
-                                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                             <img
-                                        className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                                        src={dash}
-                                        alt="app screen"
-                                        width="2700"
-                                        height="1440"
-                                    />
-                                    <img
-                                        className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                                        src={dash}
-                                        alt="app screen"
-                                        width="2700"
-                                        height="1440"
-                                    />
+                            <div className="relative  overflow-hidden ">
+            
+                                <div className=" relative mx-auto max-w-5xl ">
+                                    <ScrollAnimationDemo />
                                 </div>
                             </div>
                         </AnimatedGroup>
@@ -131,6 +121,7 @@ export function HeroSection() {
         </>
     )
 }
+
 
 const menuItems = [
     { name: 'Features', href: '#link' },
@@ -233,7 +224,7 @@ export const HeroHeader = () => {
 
 const LogoCloud = () => {
     return (
-        <section className="bg-background pb-16 md:pb-32">
+        <section className="pb-16 md:pb-32">
             <div className="group relative m-auto max-w-6xl px-6">
                 <div className="flex flex-col items-center md:flex-row">
                     <div className="inline md:max-w-44 md:border-r md:pr-6">

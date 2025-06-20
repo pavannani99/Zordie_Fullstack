@@ -14,7 +14,7 @@ export default function Flow() {
       icon: Users,
       title: "Choose Agents",
       description: "Pick from a library of ready-to-use AI agents tailored for specific business workflows.",
-      image: "https://framerusercontent.com/images/DQNh8dTvKuBWNIc5iYu6jOOEQw.png",
+      image: "/src/images/4417da43e61fb4ef3fd13917fd21a505.gif"
     },
     {
       id: "write-prompt",
@@ -23,7 +23,7 @@ export default function Flow() {
       title: "Write a Prompt",
       description:
         "Easily guide Zordie AI agents by entering a simple prompt—customize tasks like candidate screening, interview questions, or job descriptions in seconds.",
-      image: "https://framerusercontent.com/images/tAOvSmlNLsjUGijvg3fynyYirLM.png"
+      image: "/src/images/3607fd13fddeb924c0bd732b7b3f3ca6.gif"
     },
     {
       id: "automate-tasks",
@@ -32,7 +32,7 @@ export default function Flow() {
       title: "Automate Tasks",
       description:
         "Let Zordie AI automate repetitive hiring tasks—like resume screening, interview scheduling, follow-ups, and updates—so your team can focus on smarter decisions.",
-      image:"https://framerusercontent.com/images/86yN4u3nk1dp109HuSOkrw22cRk.png"
+      image: "/src/images/exciting.jpeg"
     },
   ]
 
@@ -75,7 +75,7 @@ export default function Flow() {
         {/* Content Box */}
         {activeTabData && (
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-black">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Left Content */}
               <div className="space-y-6">
                 <div className="flex gap-4 flex-col items-stretch">
@@ -88,12 +88,12 @@ export default function Flow() {
               </div>
 
               {/* Right Image */}
-              <div className="relative">
-                <div className="aspect-[4/3] relative overflow-hidden rounded-2xl bg-gray-900">
+              <div className="relative w-full h-full min-h-[300px]">
+                <div className="w-full h-full rounded-2xl bg-gray-900 overflow-hidden">
                   <img
                     src={activeTabData.image || "/placeholder.svg"}
                     alt={activeTabData.title}
-                    className="object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>

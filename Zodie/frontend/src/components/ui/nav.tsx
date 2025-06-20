@@ -167,7 +167,7 @@ export default function Navbar() {
                 </Link>
               </Button>
               <Button asChild size="sm">
-                <Link to="/signup">
+                <Link to="/waitlist">
                   <span>Sign Up</span>
                 </Link>
               </Button>
