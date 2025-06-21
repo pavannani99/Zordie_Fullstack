@@ -32,7 +32,7 @@ export default function Flow() {
       title: "Automate Tasks",
       description:
         "Let Zordie AI automate repetitive hiring tasks—like resume screening, interview scheduling, follow-ups, and updates—so your team can focus on smarter decisions.",
-      image: "/src/images/exciting.jpeg"
+      image: "/src/assets/agentic.png"
     },
   ]
 

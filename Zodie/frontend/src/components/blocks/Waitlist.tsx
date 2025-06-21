@@ -95,7 +95,7 @@ const WaitLanding = () => {
             
             <p className="text-gray-600 text-lg mb-12 max-w-md mx-auto">
               We're getting close. Sign up to get early access to<br />
-              Soonix and start building your viral waitlist.
+              Zordie Ai and start building your viral waitlist.
             </p>
 
             {/* Email Signup */}
