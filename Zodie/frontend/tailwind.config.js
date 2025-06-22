@@ -12,6 +12,11 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+		boxShadow: {
+        custom: `0px 0.602px 1.807px -1.25px rgba(0, 0, 0, 0.36),
+                 0px 2.289px 6.866px -2.5px rgba(0, 0, 0, 0.32),
+                 0px 10px 30px -3.75px rgba(0, 0, 0, 0.13)`
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
