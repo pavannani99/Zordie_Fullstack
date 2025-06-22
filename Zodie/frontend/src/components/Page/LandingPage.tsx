@@ -29,10 +29,10 @@ export const LandingPage=()=>{
         <Flow></Flow>
         <HRAgentsDashboard/>
         <Productivity></Productivity>
+        <FeatureBentoGrid/>
         <AIBenefitsLanding/>
        <AnimatedTestimonialsWithParticles></AnimatedTestimonialsWithParticles>
         <FaqDemo></FaqDemo>
-           <FeatureBentoGrid/>
         <Footerdemo></Footerdemo>
         </div>
     )
