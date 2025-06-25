@@ -145,7 +145,7 @@ async def init_job_data(db: AsyncSession) -> None:
     for job_data in SAMPLE_JOBS:
         # Check if job with same title and company already exists
         result = await db.execute(
-            "SELECT id FROM job WHERE title = :title AND company = :company",
+            text("SELECT id FROM job WHERE title = :title AND company = :company"),
             {"title": job_data["title"], "company": job_data["company"]}
         )
         existing_job = result.scalar_one_or_none()
@@ -171,3 +171,5 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+# Add this import at the top of the file
+from sqlalchemy import text

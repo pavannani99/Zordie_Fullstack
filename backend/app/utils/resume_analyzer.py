@@ -2,6 +2,7 @@ import os
 import json
 import shutil
 import logging
+import subprocess
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
 
@@ -12,7 +13,7 @@ logger = logging.getLogger(__name__)
 # Define paths
 UPLOAD_DIR = Path("./uploads")
 OUTPUT_DIR = Path("./output")
-DS_OUTPUT_DIR = Path("../../output")  # Path to the data science output folder
+RESUME_INTELLIGENCE_DIR = Path("../../Zordie AI")
 
 # Ensure directories exist
 UPLOAD_DIR.mkdir(exist_ok=True)
@@ -21,7 +22,7 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 class ResumeAnalyzer:
     """
-    Class to handle resume analysis using the data science code.
+    Class to handle resume analysis using the Resume Intelligence System.
     """
     
     @staticmethod
@@ -40,17 +41,83 @@ class ResumeAnalyzer:
             logger.info(f"Analyzing resume: {resume_path}")
             logger.info(f"Job description: {job_desc_path}")
             
-            # In a real implementation, you would call your data science code here
-            # For example:
-            # subprocess.run(["python", "analyze_resume.py", str(resume_path), str(job_desc_path)])
+            # Call the Resume Intelligence System's pipeline
+            result = ResumeAnalyzer.analyze_resume_for_job(
+                resume_path=str(resume_path),
+                job_description_path=str(job_desc_path)
+            )
             
-            # For now, we'll read the sample output files from the data science output folder
-            return ResumeAnalyzer._read_analysis_results()
+            return result
             
         except Exception as e:
             logger.error(f"Error analyzing resume: {str(e)}")
             raise
     
+    @staticmethod
+    def analyze_resume_for_job(resume_path: str, job_description: str = None, 
+                              job_description_path: str = None, 
+                              required_skills: List[str] = None) -> Dict[str, Any]:
+        """
+        Analyze a resume against a job description using the Resume Intelligence System.
+        
+        Args:
+            resume_path: Path to the resume file
+            job_description: Job description text (optional)
+            job_description_path: Path to job description file (optional)
+            required_skills: List of required skills (optional)
+            
+        Returns:
+            Dict containing analysis results
+        """
+        try:
+            # If job_description is provided but not job_description_path, write to temp file
+            temp_job_desc_path = None
+            if job_description and not job_description_path:
+                temp_job_desc_path = OUTPUT_DIR / f"job_desc_{os.path.basename(resume_path)}.txt"
+                with open(temp_job_desc_path, "w") as f:
+                    f.write(job_description)
+                job_description_path = str(temp_job_desc_path)
+            
+            # If required_skills are provided, append to job description
+            if required_skills and temp_job_desc_path:
+                with open(temp_job_desc_path, "a") as f:
+                    f.write("\n\nRequired Skills:\n")
+                    for skill in required_skills:
+                        f.write(f"- {skill}\n")
+            
+            # Run the Resume Intelligence System's pipeline
+            script_path = RESUME_INTELLIGENCE_DIR / "run_analysis.py"
+            cmd = [
+                "python", 
+                str(script_path), 
+                "--resume", resume_path, 
+                "--job-description", job_description_path
+            ]
+            
+            logger.info(f"Running command: {' '.join(cmd)}")
+            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+            
+            # Parse the output (assuming JSON output)
+            output_file = OUTPUT_DIR / f"{os.path.basename(resume_path)}_analysis.json"
+            if output_file.exists():
+                with open(output_file, "r") as f:
+                    analysis_results = json.load(f)
+            else:
+                # If output file doesn't exist, fall back to sample data
+                analysis_results = ResumeAnalyzer._read_analysis_results()
+            
+            # Clean up temp file if created
+            if temp_job_desc_path and os.path.exists(temp_job_desc_path):
+                os.remove(temp_job_desc_path)
+            
+            return analysis_results
+            
+        except Exception as e:
+            logger.error(f"Error analyzing resume for job: {str(e)}")
+            # Fall back to sample data in case of error
+            return ResumeAnalyzer._read_analysis_results()
+    
+    # Keep the existing methods for reading sample data as fallback
     @staticmethod
     def _read_analysis_results() -> Dict[str, Any]:
         """

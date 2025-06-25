@@ -7,42 +7,49 @@ from app.core.config import settings
 # Configure logging
 logger = logging.getLogger(__name__)
 
-# Convert the DATABASE_URL to use the asyncpg driver
+# Fix DATABASE_URL to asyncpg and strip SSL if present
 database_url = settings.DATABASE_URL
 if database_url.startswith('postgresql://') and 'asyncpg' not in database_url:
     database_url = database_url.replace('postgresql://', 'postgresql+asyncpg://')
 
-# Remove sslmode parameter as it's not supported by SQLAlchemy directly
+# Remove sslmode from URL if present
 database_url = re.sub(r'\?sslmode=\w+', '', database_url)
 
-# Create engine with connection pooling for production
+# Create async SQLAlchemy engine with connection pool
 engine = create_async_engine(
     database_url,
-    pool_pre_ping=True,  # Check connection before using it
-    pool_size=settings.DATABASE_POOL_SIZE,  # Number of connections to keep open
-    max_overflow=settings.DATABASE_MAX_CONNECTIONS - settings.DATABASE_POOL_SIZE,  # Max additional connections
-    pool_timeout=30,  # Seconds to wait for a connection
-    pool_recycle=1800,  # Recycle connections after 30 minutes
-    echo=settings.ENVIRONMENT == "development",  # Log SQL in development only
+    pool_pre_ping=True,
+    pool_size=settings.DATABASE_POOL_SIZE,
+    max_overflow=settings.DATABASE_MAX_CONNECTIONS - settings.DATABASE_POOL_SIZE,
+    pool_timeout=30,
+    pool_recycle=1800,
+    echo=settings.ENVIRONMENT == "development",
 )
 
-# Create session factory
+# Create async session factory
 AsyncSessionLocal = sessionmaker(
-    engine, 
-    class_=AsyncSession, 
+    bind=engine,
+    class_=AsyncSession,
     expire_on_commit=False,
     autoflush=False
 )
 
-
+# Dependency for FastAPI routes (used with Depends)
 async def get_db() -> AsyncSession:
-    """Dependency for getting a database session."""
-    session = AsyncSessionLocal()
-    try:
-        yield session
-    except Exception as e:
-        logger.error(f"Database session error: {str(e)}")
-        await session.rollback()
-        raise
-    finally:
-        await session.close()
+    async with AsyncSessionLocal() as session:
+        try:
+            yield session
+        finally:
+            await session.close()
+
+# Generator-based session (also used in FastAPI endpoints if needed)
+async def get_async_session():
+    async with AsyncSessionLocal() as session:
+        try:
+            yield session
+        finally:
+            await session.close()
+
+# Function-based session for scripts like init_and_run.py
+def async_session() -> AsyncSession:
+    return AsyncSessionLocal()

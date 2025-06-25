@@ -33,17 +33,7 @@ def run_async(coro):
 
 @shared_task(bind=True, name="app.worker.tasks.analyze_resume_task")
 def analyze_resume_task(self, resume_path: str, job_id: int, user_id: int):
-    """
-    Analyze a resume against a job description asynchronously.
-    
-    Args:
-        resume_path: Path to the resume file
-        job_id: ID of the job to analyze against
-        user_id: ID of the user who uploaded the resume
-    
-    Returns:
-        Analysis results
-    """
+    """Analyze a resume against a job description asynchronously."""
     logger.info(f"Starting resume analysis for user {user_id}, job {job_id}")
     
     try:
@@ -63,7 +53,7 @@ def analyze_resume_task(self, resume_path: str, job_id: int, user_id: int):
                 analyzer = ResumeAnalyzer()
                 
                 # Analyze the resume
-                analysis_results = analyzer.analyze_resume_for_job(
+                analysis_results = ResumeAnalyzer.analyze_resume_for_job(
                     resume_path=resume_path,
                     job_description=job_description,
                     required_skills=required_skills

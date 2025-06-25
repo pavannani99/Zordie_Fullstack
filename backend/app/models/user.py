@@ -15,8 +15,14 @@ class User(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
-    # Relationships
+    # Existing relationships
     jobs = relationship("Job", back_populates="user", cascade="all, delete-orphan")
     applications = relationship("JobApplication", back_populates="user", cascade="all, delete-orphan")
     profile = relationship("UserProfile", back_populates="user", uselist=False)
     resume_analyses = relationship("ResumeAnalysis", back_populates="user", cascade="all, delete-orphan")
+    
+    # New relationships for AI agents
+    agent_outputs = relationship("AgentOutput", back_populates="user", cascade="all, delete-orphan")
+    tasks = relationship("Task", back_populates="user", cascade="all, delete-orphan")
+    feedbacks = relationship("Feedback", back_populates="user", cascade="all, delete-orphan")
+    learning_history = relationship("Learning", back_populates="user", cascade="all, delete-orphan")

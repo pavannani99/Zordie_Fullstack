@@ -164,27 +164,7 @@ async def analyze_resume(
     job_id: int = Form(...),
     current_user: User = Depends(deps.get_current_active_user),
 ) -> Any:
-    """
-    Analyze a resume against a job description.
-    
-    This endpoint accepts a resume file upload and a job ID, then analyzes the resume
-    against the job description to provide detailed feedback and scoring.
-    
-    Parameters:
-    - resume: PDF file containing the user's resume
-    - job_id: ID of the job to analyze against
-    
-    Returns:
-    - Dictionary containing analysis results including:
-      - overall_score: Overall match score (0-100)
-      - skill_alignment: Detailed skill matching analysis
-      - project_validation: Analysis of projects and their relevance
-      - formatting: Assessment of resume formatting
-      - trustworthiness: Evaluation of resume credibility
-      - credibility: Analysis of claims and their verification
-      - comprehensive_quality: Overall quality assessment
-      - analysis_summary: Text summary of the analysis
-    """
+    """Analyze a resume against a job description."""
     try:
         # Validate the uploaded file
         await validate_resume_file(resume)
@@ -216,11 +196,8 @@ async def analyze_resume(
         job_description = job.description
         required_skills = [skill.name for skill in job.skills] if job.skills else []
         
-        # Initialize the resume analyzer
-        analyzer = ResumeAnalyzer()
-        
-        # Analyze the resume
-        analysis_results = analyzer.analyze_resume_for_job(
+        # Analyze the resume using the new method
+        analysis_results = ResumeAnalyzer.analyze_resume_for_job(
             resume_path=str(resume_path),
             job_description=job_description,
             required_skills=required_skills
