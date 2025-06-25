@@ -42,7 +42,8 @@ export function HeroSection() {
             <HeroHeader />
             <main className="overflow-hidden">
                 <section>
-                    <div className="relative pt-12 pb-4"> {/* Reduced pt-24 to pt-12 and pb-8 to pb-4 */}
+                    <div className="relative pt-32 pb-4"> {/* Increased top padding */}
+
                         <div className="mx-auto max-w-5xl px-6">
                             <div className="sm:mx-auto lg:mr-auto">
                                 <AnimatedGroup
@@ -123,16 +124,18 @@ export function HeroSection() {
 }
 
 
-const menuItems = [
-    { name: 'Features', href: '#link' },
-    { name: 'Solution', href: '#link' },
-    { name: 'Pricing', href: '#link' },
-    { name: 'About', href: '#link' },
-]
+const menuItems: { name: string; href: string }[] = [
+  { name: 'Features', href: '#link' },
+  { name: 'Solution', href: '#link' },
+  { name: 'Pricing', href: '#link' },
+  { name: 'About', href: '#link' },
+];
+
 
 export const HeroHeader = () => {
-    const [menuState, setMenuState] = React.useState(false)
-    const [scrolled, setScrolled] = React.useState(false)
+const [menuState, setMenuState] = React.useState<boolean>(false);
+const [scrolled, setScrolled] = React.useState<boolean>(false);
+
 
     const { scrollYProgress } = useScroll()
 

@@ -6,7 +6,7 @@ import { NovaPage } from './components/Page/NovaAgent'
 import { MaxiPage } from './components/Page/MaxiAgent'
 import { ArchiePage } from './components/Page/ArchieAgent'
 import { OnixPage } from './components/Page/OnixAgent'
-import { Login, Signup } from './components/Page/Login'
+import Login from './components/Page/Login'
 import TestPage from './components/TestPage'
 import { About } from './components/ui/about-3'
 import { AboutUs } from './components/Page/AboutUs'
@@ -24,10 +24,10 @@ function App() {
         <Route path='/maxi' element={<MaxiPage/>}></Route>
         <Route path='/archie' element={<ArchiePage/>}/>
         <Route path='/onix' element={<OnixPage/>}/>
-
+    
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/waitlist' element={<WaitlistPage/>}></Route>
-        <Route path='/signup' element={<Signup/>}></Route>
+        {/* <Route path='/signup' element={<Signup/>}></Route> */}
         <Route path='/test' element={<TestPage/>}></Route>
         <Route path='/about' element={<AboutUs/>}></Route>
         <Route path='/resource' element={<Resource/>}></Route>

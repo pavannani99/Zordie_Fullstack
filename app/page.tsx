@@ -1,6 +1,8 @@
 "use client"
 import { useState } from "react"
 import type React from "react"
+import {  Bell } from "lucide-react";
+
 
 import {
   Plus,
@@ -19,6 +21,11 @@ import {
   Award,
   Filter,
   Calendar,
+  Settings,
+  User,
+  Bot,
+  UserPlus,
+  Wallet,
 } from "lucide-react"
 import {
   Line,
@@ -42,6 +49,27 @@ import {
   Pie,
   Cell,
 } from "recharts"
+
+
+function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#FF4B00] hover:to-[#FFA500] hover:text-white">
+      <div className="text-black">{icon}</div>
+      <span className="text-sm font-medium">{label}</span>
+    </div>
+  );
+}
+// Agent Component with status dot
+function Agent({ icon, name, dotColor }) {
+  return (
+    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#FF4B00] hover:to-[#FFA500] hover:text-white">
+      <div className="w-4">{icon}</div>
+      <span className="text-sm font-medium">{name}</span>
+      <span className={`w-2 h-2 rounded-full ${dotColor} ml-auto`}></span>
+    </div>
+  );
+}
+
 
 // Complex HR Analytics Data
 const hiringFunnelData = [
@@ -1072,40 +1100,85 @@ Senior HR Business Partner
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <BarChart3 className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">
-                  {currentView === "dashboard"
-                    ? "HR Analytics Dashboard"
-                    : currentView === "upload"
-                      ? "AI Resume Analysis"
-                      : currentView === "processing"
-                        ? "Processing Analysis"
-                        : "Analysis Results"}
-                </h1>
-                <p className="text-sm text-gray-500">
-                  {currentView === "dashboard" ? "Comprehensive HR Metrics & Analytics" : "Advanced Candidate Matching"}
-                </p>
-              </div>
-            </div>
-            <div className="text-sm text-gray-500">Last updated: {new Date().toLocaleTimeString()}</div>
-          </div>
+  <div className="flex min-h-screen bg-gray-100">
+    {/* SIDEBAR */}
+    <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
+      <div className="p-6 border-b border-gray-200">
+        <h1 className="text-2xl font-bold text-orange-600">ZORDIE</h1>
+      </div>
+      <nav className="flex-1 px-4 py-6 space-y-3 text-gray-700">
+ <SidebarItem icon={<BarChart3 size={20} />} label="Dashboard" />
+      <SidebarItem icon={<Bot size={20} />} label="Prime Copilot" />
+      <SidebarItem icon={<FileText size={20} />} label="Workspace" />
+      <SidebarItem icon={<CheckCircle size={20} />} label="RBAC Role Manager" />
+      <SidebarItem icon={<User size={20} />} label="Agent Management" />
+      <SidebarItem icon={<Calendar size={20} />} label="Projects & Calendar" />
+      <SidebarItem icon={<Clock size={20} />} label="Compliance & Audit" />
+      <SidebarItem icon={<DollarSign size={20} />} label="Nova Document Hub" />
+      <SidebarItem icon={<Award size={20} />} label="Support" />
+      <SidebarItem icon={<MoreHorizontal size={20} />} label="Settings" />
+       {/* Active Agents Section */}
+<div className="mt-6">
+        <h4 className="text-sm font-semibold text-gray-600 mb-3">Active Agents</h4>
+        <Agent icon={<UserPlus size={16} className="text-blue-600" />} name="Optimus" dotColor="bg-green-500" />
+        <Agent icon={<Clock size={16} className="text-red-500" />} name="Maxi" dotColor="bg-green-500" />
+        <Agent icon={<Wallet size={16} className="text-amber-700" />} name="Laxmi" dotColor="bg-orange-400" />
+        <Agent icon={<FileText size={16} className="text-purple-600" />} name="Nova" dotColor="bg-red-500" />
+      </div>
+      </nav>
+    </aside>
+
+    {/* MAIN SECTION */}
+    <div className="flex-1 flex flex-col">
+      {/* TOP BAR */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+        <div>
+          <h1 className="text-xl font-bold text-gray-900">
+            {currentView === "dashboard"
+              ? "HR Analytics Dashboard"
+              : currentView === "upload"
+              ? "AI Resume Analysis"
+              : currentView === "processing"
+              ? "Processing Analysis"
+              : "Analysis Results"}
+          </h1>
+          <p className="text-sm text-gray-500">
+            {currentView === "dashboard"
+              ? "Comprehensive HR Metrics & Analytics"
+              : "Advanced Candidate Matching"}
+          </p>
         </div>
+
+        {/* Search + Bell + Profile */}   
+<div className="flex items-center space-x-4">
+  <input
+    type="text"
+    placeholder="Search..."
+    className="px-3 py-1 border rounded-md text-sm bg-orange-500 placeholder-gray-800 hover:text-orange-800"
+  />
+  <Bell className="text-gray-600 w-5 h-5 cursor-pointer hover:text-orange-800" />
+  {/* <BarChart3 className="text-gray-600 w-5 h-5" /> */}
+  <img
+    src="https://ui-avatars.com/api/?name=Aiden+Max"
+    alt="Profile"
+    className="w-8 h-8 rounded-full"
+  />
+</div>
       </header>
 
-      {/* Render Current View */}
-      {currentView === "dashboard" && renderDashboard()}
-      {currentView === "upload" && renderUploadForm()}
-      {currentView === "processing" && renderProcessing()}
-      {currentView === "results" && renderResults()}
+      {/* ORIGINAL CONTENT RENDERING */}
+      <main className="flex-1 overflow-y-auto">
+{currentView === "dashboard" && (
+  <div className="p-6">
+    {renderDashboard()}
+  </div>
+)}
+
+        {currentView === "upload" && <div className="p-6">Upload Section</div>}
+        {currentView === "processing" && <div className="p-6">Processing...</div>}
+        {currentView === "results" && <div className="p-6">Results</div>}
+      </main>
     </div>
-  )
+  </div>
+)
 }
