@@ -1,0 +1,257 @@
+.integrations-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.integrations-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.badge-icon {
+  font-size: 16px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+.integration-layout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  margin-bottom: 80px;
+}
+
+.left-nodes {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.right-nodes {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.node-container.top {
+  position: absolute;
+  top: -190px;
+  transform: translateY(-50%); /* Center the node on the connection point */
+}
+
+.node-container.middle {
+  position: absolute;
+  top: 0px;
+  transform: translateY(-50%);
+}
+
+.node-container.bottom {
+  position: absolute;
+  top: 190px;
+  transform: translateY(-50%); /* Center the node on the connection point */
+}
+
+.app-node,
+.hub-node {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hub-node {
+  width: 90px;
+  height: 90px;
+  border-radius: 22px;
+}
+
+.app-node:hover,
+.hub-node:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+}
+
+.node-gif,
+.hub-gif {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.hub-gif {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+}
+
+.center-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.connections-left {
+  position: absolute;
+  left: 70px; /* Adjusted for smaller node width */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 437px;
+  height: 193px;
+  z-index: 1;
+}
+
+.connections-right {
+  position: absolute;
+  right: 70px; /* Adjusted for smaller node width */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 437px;
+  height: 193px;
+  z-index: 1;
+}
+
+.connection-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.connection-svg.top-connection {
+  top: -96px;
+}
+
+.connection-svg.bottom-connection {
+  top: 96px;
+}
+
+.straight-connection {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 437px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.dotted-line {
+  width: 100%;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgb(45, 106, 119) 0px,
+    rgb(45, 106, 119) 5px,
+    transparent 5px,
+    transparent 8px
+  );
+}
+
+.features {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+}
+
+.feature-icon {
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .integration-layout {
+    transform: scale(0.8);
+    height: 400px;
+  }
+
+  .features {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .integration-layout {
+    transform: scale(0.6);
+    height: 300px;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .integration-layout {
+    transform: scale(0.5);
+    height: 250px;
+  }
+}

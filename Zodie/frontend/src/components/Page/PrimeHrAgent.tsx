@@ -11,6 +11,10 @@ import WhatsIncludedSection from "@/demo/WhatIncluded"
 import dash from "@/components/blocks/Dashboard.png"
 import prime from '@/images/prime.png'
 import {Bolt,CopyPlus,Layers2,Files} from 'lucide-react'
+import PrimeFeatures from "../Agents_Components/PrimeFt"
+import IntegrationsSection from "../Agents_Components/Nodes"
+import System from "../Agents_Components/system"
+import Insights from "../Agents_Components/Insights"
 
 
 export const PrimeHrPage=()=>{
@@ -33,8 +37,10 @@ export const PrimeHrPage=()=>{
                         ],
                       }}></HeroAgent>
         <Marquee text='PrimeHR'></Marquee>
-        <GradientHeadingDemo></GradientHeadingDemo>
-        <FeaturesSectionWithHoverEffectsDemo></FeaturesSectionWithHoverEffectsDemo>
+        <PrimeFeatures/>
+        <IntegrationsSection/>
+        <Insights/>
+        <System/>
         {/* <WhatsIncludedSection></WhatsIncludedSection> */}
         <Footerdemo></Footerdemo>
         </div>
