@@ -66,16 +66,7 @@ Once the server is running, you can access:
 
 - `/api/v1/profile/me` - Get or update current user profile
 
-### Zodiac
 
-- `/api/v1/zodiac/signs` - Get all zodiac signs
-- `/api/v1/zodiac/signs/{sign_id}` - Get zodiac sign by ID
-- `/api/v1/zodiac/signs/by-name/{name}` - Get zodiac sign by name
-- `/api/v1/zodiac/signs/by-date` - Get zodiac sign by birth date
-- `/api/v1/zodiac/horoscopes/daily` - Get daily horoscopes for all signs
-- `/api/v1/zodiac/horoscopes/{sign_id}` - Get horoscope for a specific sign
-- `/api/v1/zodiac/profile` - Create user astrological profile
-- `/api/v1/zodiac/profile/me` - Get or update current user's astrological profile
 
 ## Authentication Flow
 
