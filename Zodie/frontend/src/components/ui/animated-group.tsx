@@ -146,14 +146,14 @@ function AnimatedGroup({
   const selectedVariants = preset
     ? presetVariants[preset]
     : { container: defaultContainerVariants, item: defaultItemVariants };
-  const containerVariants = variants?.container || selectedVariants.container;
+  const Variants = variants?.container || selectedVariants.container;
   const itemVariants = variants?.item || selectedVariants.item;
 
   return (
     <motion.div
       initial='hidden'
       animate='visible'
-      variants={containerVariants}
+      variants={Variants}
       className={cn(className)}
     >
       {React.Children.map(children, (child, index) => (

@@ -7,53 +7,41 @@ import { cn } from "@/lib/utils"
 import { MenuItem, MegaMenu } from "@/components/ui/Navbar"
 import Logo from '@/images/Logo.png'
 import platform from '@/images/Platform.png'
-import solutions from '@/images/Solutions.png'
-import agents from '@/images/Agents.png'
+// import solutions from '@/images/Solutions.png'
+// import agents from '@/images/Agents.png'
 import resource from '@/images/resources.jpg'
 import about from '@/images/about.jpg'
 const menuItems = [
-  {
-    name: "Platform",
-    href: "/",
-    megaMenu: {
-      title: "Agentic Automation",
-      description: "Learn more about the next generation of process automation",
-      image: platform,
-      items: [
-        { name: "Home", href: "/" },
-      ],
-    },
-  },
-  {
-    name: "AI Agents",
-    href: "/prime",
-    megaMenu: {
-      title: "AI Agents",
-      description: "Discover our powerful AI agents for your business",
-      image: agents,
-      items: [
-        { name: "Prime HR", href: "/prime" },
-        { name: "Onix", href: "/onix" },
-        { name: "Nova", href: "/Nova" },
-        { name: "Maxi", href: "/maxi" },
-        { name: "Optimus", href: "/optimus" },
-        { name: "Archie", href: "/archie" },
-      ],
-    },
-  },
-  {
-    name: "Solutions",
-    href:'#',
-    megaMenu: {
-      title: "Solutions",
-      description: "We cater all the Hr related things",
-      image: solutions,
-      items: [
-        { name: "Solutions", href: "/solution" },
-        {name:"Pricing",href:"/pricing"}
-      ],
-    },
-  },
+  // {
+  //   name: "AI Agents",
+  //   href: "/prime",
+  //   megaMenu: {
+  //     title: "AI Agents",
+  //     description: "Discover our powerful AI agents for your business",
+  //     image: agents,
+  //     items: [
+  //       { name: "Prime HR", href: "/prime" },
+  //       { name: "Onix", href: "/onix" },
+  //       { name: "Nova", href: "/Nova" },
+  //       { name: "Maxi", href: "/maxi" },
+  //       { name: "Optimus", href: "/optimus" },
+  //       { name: "Archie", href: "/archie" },
+  //     ],
+  //   },
+  // },
+  // {
+  //   name: "Solutions",
+  //   href:'#',
+  //   megaMenu: {
+  //     title: "Solutions",
+  //     description: "We cater all the Hr related things",
+  //     image: solutions,
+  //     items: [
+  //       { name: "Solutions", href: "/solution" },
+  //       {name:"Pricing",href:"/pricing"}
+  //     ],
+  //   },
+  // },
   {
     name: "Resources",
     href: "/resource",
@@ -112,9 +100,10 @@ export default function Navbar() {
       <div className="mx-auto max-w-5xl px-6 transition-all duration-300">
         <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
           <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
-            <Link to="/" aria-label="home" className="flex items-center space-x-2">
-              <img src={Logo} className="h-8 md:h-12"></img>
-            </Link>
+<Link to="/landing" aria-label="home" className="flex items-center space-x-2">
+  <img src={Logo} className="h-8 md:h-12" />
+</Link>
+
 
             <button
               onClick={() => setMenuState(!menuState)}

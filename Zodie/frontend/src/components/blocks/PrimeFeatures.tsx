@@ -1,7 +1,8 @@
-// @ts-nocheck
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import {
   CheckCircle,
   TrendingUp,
@@ -589,66 +590,109 @@ export default function PrimeFeature() {
 
       {/* Hero Section */}
       <section
-        id="hero"
-        className={`section-animate ${isVisible.hero ? "visible" : ""} relative overflow-hidden`}
-      >
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-100 mb-6 leading-tight animate-fade-in">
-            Introducing Prime
-            <br />
-            <span className="bg-white bg-clip-text text-transparent">
-              The Self-Evolving AI That Works For You
-            </span>
-          </h1>
-          <p
-            className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto animate-fade-in"
-            style={{ animationDelay: "0.2s" }}
-          >
-            We design, develop, and implement automation tools that help you work smarter, not harder
-          </p>
-        </div>
-      </section>
+  id="hero"
+  className={`section-animate ${isVisible.hero ? "visible" : ""} relative overflow-hidden pt-32`} // Add top padding here
+>
+  <div className="max-w-7xl mx-auto text-center px-4">
+    <motion.h1
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.2,
+        duration: 0.8,
+        ease: "easeInOut",
+      }}
+      className="text-5xl md:text-7xl font-bold mb-6 leading-tight bg-gradient-to-br from-purple-300 via-white to-purple-600 bg-clip-text text-transparent"
+    >
+      Introducing Prime 
+      <br />
+      The Self-Evolving 
+      <br /> AI That Works For You
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 0.8 }}
+      className="text-xl text-gray-200 mb-12 max-w-3xl mx-auto"
+    >
+      We design, develop, and implement automation tools that help you work smarter, not harder.
+    </motion.p>
+  </div>
+</section>
+
 
       {/* AI Assistant Section */}
       <section
-        id="ai-assistant"
-        className={`section-animate ${isVisible["ai-assistant"] ? "visible" : ""} py-20 px-4`}
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-left">
-              <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">AI Assistant</Badge>
-              <h2 className="text-4xl font-bold text-white mb-6">One Command, Infinite Actions</h2>
-              <p className="text-lg text-gray-200 mb-8">
-                From managing calendars to drafting emails and summarizing meetings etc, AI assistants work around the
-                clock to keep your business running smarter and faster.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Badge variant="secondary" className="bg-gray-900 text-white hover:bg-gray-800">
-                  Summaries
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-900 text-white hover:bg-gray-800">
-                  Scheduling
-                </Badge>
-                <Badge variant="secondary" className="bg-gray-900 text-white hover:bg-gray-800">
-                  Many more
-                </Badge>
-              </div>
-            </div>
-            <div className="animate-slide-in-right">
-              <img src={i1} alt="AI Assistant" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
-            </div>
-          </div>
+  id="ai-assistant"
+  className={`section-animate ${isVisible["ai-assistant"] ? "visible" : ""} py-20 px-4`}
+>
+  <div className="max-w-7xl mx-auto">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      
+      {/* LEFT TEXT CONTENT */}
+      <div className="animate-slide-in-left">
+        <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">AI Assistant</Badge>
+        <h2 className="text-4xl font-bold text-white mb-6">
+  <span className="inline-block bg-gradient-to-r text-white">
+    One
+  </span>{" "}
+  <span className="inline-block bg-gradient-to-r text-white">
+    Command ,
+  </span>
+  {" "}
+  <span className="inline-block bg-gradient-to-r text-white">
+    Infinite Actions
+  </span>
+</h2>
+
+        <p className="text-lg text-gray-200 mb-8">
+          From managing calendars to drafting emails and summarizing meetings etc, AI assistants work around the
+          clock to keep your business running smarter and faster.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Badge variant="secondary" className="bg-gray-900 text-white hover:bg-gray-800">Summaries</Badge>
+          <Badge variant="secondary" className="bg-gray-900 text-white hover:bg-gray-800">Scheduling</Badge>
+          <Badge variant="secondary" className="bg-gray-900 text-white hover:bg-gray-800">Many more</Badge>
         </div>
-      </section>
+      </div>
+
+      {/* RIGHT IMAGE WITH 3D EFFECT */}
+      <div className="animate-slide-in-right">
+        <CardContainer>
+          <CardBody className="bg-transparent border-none p-0 shadow-none">
+            <CardItem translateZ="80">
+              <img
+                src={i1}
+                alt="AI Assistant"
+                className="w-[80%] h-auto rounded-xl mx-auto group-hover/card:shadow-2xl transition-all duration-300"
+              />
+            </CardItem>
+          </CardBody>
+        </CardContainer>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Analytics Section */}
       <section id="analytics" className={`section-animate ${isVisible.analytics ? "visible" : ""} py-20 px-4`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-left">
-              <img src={i2} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
-            </div>
+  <div className="animate-slide-in-left">
+  <CardContainer>
+    <CardBody className="bg-transparent border-none p-0 shadow-none">
+      <CardItem translateZ="80">
+        <img
+          src={i2}
+          alt="Analytics Engine"
+          className="w-[80%] h-auto rounded-xl shadow-lg mx-auto transition-all duration-300 group-hover/card:shadow-2xl"
+        />
+      </CardItem>
+    </CardBody>
+  </CardContainer>
+</div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">AI Driven Decisions</Badge>
               <h2 className="text-4xl font-bold text-white mb-6">AI-Powered Analytics Engine</h2>
@@ -698,9 +742,19 @@ export default function PrimeFeature() {
                 </Badge>
               </div>
             </div>
-            <div className="animate-slide-in-right">
-              <img src={i3} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
-            </div>
+<div className="animate-slide-in-right">
+  <CardContainer>
+    <CardBody className="bg-transparent border-none p-0 shadow-none">
+      <CardItem translateZ="80">
+        <img
+          src={i3}
+          alt="Analytics Engine"
+          className="w-[80%] h-auto rounded-xl shadow-lg mx-auto transition-all duration-300 group-hover/card:shadow-2xl"
+        />
+      </CardItem>
+    </CardBody>
+  </CardContainer>
+</div>
           </div>
         </div>
       </section>
@@ -709,9 +763,19 @@ export default function PrimeFeature() {
       <section id="workflow" className={`section-animate ${isVisible.workflow ? "visible" : ""} py-20 px-4`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-left">
-              <img src={i4} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
-            </div>
+<div className="animate-slide-in-left">
+  <CardContainer>
+    <CardBody className="bg-transparent border-none p-0 shadow-none">
+      <CardItem translateZ="80">
+        <img
+          src={i4}
+          alt="Analytics Engine"
+          className="w-[80%] h-auto rounded-xl shadow-lg mx-auto transition-all duration-300 group-hover/card:shadow-2xl"
+        />
+      </CardItem>
+    </CardBody>
+  </CardContainer>
+</div>
             <div className="animate-slide-in-right">
               <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">Workflow Control</Badge>
               <h2 className="text-4xl font-bold text-white mb-6">Your Control Room for Everything</h2>
@@ -759,9 +823,19 @@ export default function PrimeFeature() {
                 </Badge>
               </div>
             </div>
-            <div className="animate-slide-in-right">
-              <img src={i5} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
-            </div>
+<div className="animate-slide-in-right">
+  <CardContainer>
+    <CardBody className="bg-transparent border-none p-0 shadow-none">
+      <CardItem translateZ="80">
+        <img
+          src={i5}
+          alt="Analytics Engine"
+          className="w-[80%] h-auto rounded-xl shadow-lg mx-auto transition-all duration-300 group-hover/card:shadow-2xl"
+        />
+      </CardItem>
+    </CardBody>
+  </CardContainer>
+</div>
           </div>
         </div>
       </section>
@@ -770,9 +844,19 @@ export default function PrimeFeature() {
       <section id="projects" className={`section-animate ${isVisible.projects ? "visible" : ""} py-20 px-4`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in-left">
-              <img src={i6} alt="Analytics Engine" className="w-[80%] h-auto rounded-xl shadow-lg mx-auto animate-slide-up" />
-            </div>
+<div className="animate-slide-in-left">
+  <CardContainer>
+    <CardBody className="bg-transparent border-none p-0 shadow-none">
+      <CardItem translateZ="80">
+        <img
+          src={i6}
+          alt="Analytics Engine"
+          className="w-[80%] h-auto rounded-xl shadow-lg mx-auto transition-all duration-300 group-hover/card:shadow-2xl"
+        />
+      </CardItem>
+    </CardBody>
+  </CardContainer>
+</div>
             <div className="animate-slide-in-right">
               <Badge className="bg-orange-100 text-orange-800 hover:bg-orange-100 mb-4">Custom Projects</Badge>
               <h2 className="text-4xl font-bold text-white mb-6">Build Smarter Systems</h2>

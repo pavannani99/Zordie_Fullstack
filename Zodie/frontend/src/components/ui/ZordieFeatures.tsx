@@ -1,8 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown } from "lucide-react"
-import dash from '@/assets/Dashboard-1.png'
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import dash from "@/assets/Dashboard-1.png";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { AnimatePresence, motion } from "framer-motion";
+
 const features = [
   {
     id: 1,
@@ -26,16 +29,16 @@ const features = [
     id: 4,
     title: "Compliance Made Easy",
     description:
-      "Ensure compliance with local and global labor laws through built-in compliance checks and reporting tools."
-    }
-]
+      "Ensure compliance with local and global labor laws through built-in compliance checks and reporting tools.",
+  },
+];
 
 export default function ZordieFeatures() {
-  const [expandedItem, setExpandedItem] = useState<number | null>(null)
+  const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
   const toggleItem = (id: number) => {
-    setExpandedItem(expandedItem === id ? null : id)
-  }
+    setExpandedItem(expandedItem === id ? null : id);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
@@ -64,14 +67,25 @@ export default function ZordieFeatures() {
             </h2>
 
             <p className="text-lg text-gray-600 mb-12">
-              Our platform offers tools designed to streamline HR processes, boost efficiency, and enhance the employee
-              experience.
+              Our platform offers tools designed to streamline HR processes, boost efficiency, and enhance the employee experience.
             </p>
 
             {/* Accordion */}
             <div className="space-y-4">
-              {features.map((feature) => (
-                <div key={feature.id} className="border-b border-gray-200">
+              {features.map((feature, index) => (
+                <motion.div
+  key={feature.id}
+  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+  whileHover={{
+    scale: 1.03,
+    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.08)",
+  }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
+  className={`border-b border-gray-200 bg-white rounded-xl transition-transform duration-300 cursor-pointer`}
+>
+
                   <button
                     onClick={() => toggleItem(feature.id)}
                     className="w-full py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200"
@@ -80,39 +94,68 @@ export default function ZordieFeatures() {
                       <span className="text-lg font-medium text-gray-500">[{feature.id}]</span>
                       <span className="text-xl font-semibold text-gray-900">{feature.title}</span>
                     </div>
+                    <ChevronDown
+                      className={`transition-transform duration-300 ${
+                        expandedItem === feature.id ? "rotate-180" : ""
+                      }`}
+                    />
                   </button>
 
-                  {expandedItem === feature.id && (
-                    <div className="pb-6 pl-12 pr-8">
-                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                    </div>
-                  )}
-                </div>
+                  <AnimatePresence initial={false}>
+                    {expandedItem === feature.id && (
+                      <motion.div
+                        key={`desc-${feature.id}`}
+                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="pb-6 pl-12 pr-8"
+                      >
+                        <motion.p
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.05, duration: 0.4 }}
+                          className="text-gray-600 leading-relaxed"
+                        >
+                          {feature.description}
+                        </motion.p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Right Side - Video */}
+          {/* Right Side - 3D Card */}
           <div className="lg:sticky lg:top-8">
-  {/* Outer Card Container */}
-  <div className="p-6 rounded-3xl bg-gradient-to-br from-orange-50 via-blue-50 to-blue-100 border border-orange-200/40 shadow-xl backdrop-blur-sm ring-1 ring-blue-200/30">
-    {/* Inner Image Container */}
-    <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white ring-1 ring-orange-300/50 shadow-orange-500/10">
-      <div className="aspect-video">
-        <img
-          src={dash}
-          title="Zordie AI Demo Video"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      
-      {/* Optional decorative gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-500/10 via-transparent to-blue-500/5 pointer-events-none"></div>
-    </div>
-  </div>
-</div>
+            <CardContainer className="inter-var">
+              <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-3xl p-6 border shadow-xl backdrop-blur-sm ring-1 ring-blue-200/30">
+                <CardItem
+                  translateZ="50"
+                  className="text-2xl font-bold text-neutral-600 dark:text-white mb-2"
+                >
+                  Zordie AI Platform
+                </CardItem>
+                <CardItem
+                  translateZ="60"
+                  as="p"
+                  className="text-neutral-500 text-sm mb-4 dark:text-neutral-300"
+                >
+                  Explore how Zordie streamlines hiring and HR with one-click intelligence.
+                </CardItem>
+                <CardItem translateZ="100">
+                  <img
+                    src={dash}
+                    alt="Zordie Demo"
+                    className="w-full h-60 object-cover rounded-xl group-hover/card:shadow-xl"
+                  />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
