@@ -8,31 +8,35 @@ import { ArchiePage } from './components/Page/ArchieAgent'
 import { OnixPage } from './components/Page/OnixAgent'
 import Login from './components/Page/Login'
 import TestPage from './components/TestPage'
-import { About } from './components/ui/about-3'
 import { AboutUs } from './components/Page/AboutUs'
 import { Resource } from './components/Page/ResourcePage'
 import { WaitlistPage } from './components/Page/Waitlist'
+import WorkspaceDashboard from '../../../app/workspace/WorkspaceDashboard'
+import AIChatBot from '../../../app/AIChatBot/page'; // adjust path if needed
+
+
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage/>} />
-        <Route path='/prime' element={<PrimeHrPage/>}/>
-        <Route path='/optimus' element={<OptimusPage/>}/>
-        <Route path='/nova' element={<NovaPage/>}></Route>
-        <Route path='/maxi' element={<MaxiPage/>}></Route>
-        <Route path='/archie' element={<ArchiePage/>}/>
-        <Route path='/onix' element={<OnixPage/>}/>
-    
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/waitlist' element={<WaitlistPage/>}></Route>
-        {/* <Route path='/signup' element={<Signup/>}></Route> */}
-        <Route path='/test' element={<TestPage/>}></Route>
-        <Route path='/about' element={<AboutUs/>}></Route>
-        <Route path='/resource' element={<Resource/>}></Route>
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/prime" element={<PrimeHrPage />} />
+          <Route path="/optimus" element={<OptimusPage />} />
+          <Route path="/nova" element={<NovaPage />} />
+          <Route path="/maxi" element={<MaxiPage />} />
+          <Route path="/archie" element={<ArchiePage />} />
+          <Route path="/onix" element={<OnixPage />} />
+          <Route path="/ai-chatbot" element={<AIChatBot />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/waitlist" element={<WaitlistPage />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/resource" element={<Resource />} />
+          <Route path="/workspace" element={<WorkspaceDashboard />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

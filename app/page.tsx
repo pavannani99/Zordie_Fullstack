@@ -2,6 +2,12 @@
 import { useState } from "react"
 import type React from "react"
 import {  Bell } from "lucide-react";
+import Link from 'next/link'
+import { LayoutDashboard } from 'lucide-react';
+
+
+// import { Bot } from 'lucide-react';
+
 
 
 import {
@@ -53,7 +59,7 @@ import {
 
 function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#FF4B00] hover:to-[#FFA500] hover:text-white">
+    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
       <div className="text-black">{icon}</div>
       <span className="text-sm font-medium">{label}</span>
     </div>
@@ -62,7 +68,7 @@ function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) 
 // Agent Component with status dot
 function Agent({ icon, name, dotColor }) {
   return (
-    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#FF4B00] hover:to-[#FFA500] hover:text-white">
+    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
       <div className="w-4">{icon}</div>
       <span className="text-sm font-medium">{name}</span>
       <span className={`w-2 h-2 rounded-full ${dotColor} ml-auto`}></span>
@@ -1103,24 +1109,57 @@ Senior HR Business Partner
   <div className="flex min-h-screen bg-gray-100">
     {/* SIDEBAR */}
     <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
-      <div className="p-6 border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-orange-600">ZORDIE</h1>
-      </div>
+<div className="flex items-center space-x-2">
+  <img
+    src="/assets/zordie-logo.png"
+    alt="Zordie Logo"
+    className="w-12 h-11"
+  />
+  <h1 className="text-2xl font-bold text-orange-600">ZORDIE</h1>
+</div>
+
       <nav className="flex-1 px-4 py-6 space-y-3 text-gray-700">
- <SidebarItem icon={<BarChart3 size={20} />} label="Dashboard" />
-      <SidebarItem icon={<Bot size={20} />} label="Prime Copilot" />
-      <SidebarItem icon={<FileText size={20} />} label="Workspace" />
-      <SidebarItem icon={<CheckCircle size={20} />} label="RBAC Role Manager" />
+<Link href="/">
+  <SidebarItem icon={<LayoutDashboard size={20} />} label="Dashboard" />
+</Link>
+<Link href="/AIChatBot">
+  <SidebarItem icon={<Bot size={20} />} label="Prime Copilot" />
+</Link>
+
+<Link href="/workspace">
+  <div>
+    <SidebarItem icon={<FileText size={20} />} label="Workspace" />
+  </div>
+</Link>
+<Link href="/RBACRoleManager">
+  <SidebarItem icon={<CheckCircle size={20} />} label="RBAC Role Manager" />
+</Link>
       <SidebarItem icon={<User size={20} />} label="Agent Management" />
-      <SidebarItem icon={<Calendar size={20} />} label="Projects & Calendar" />
+<Link href="/CalendarPage">
+  <div>
+    <SidebarItem icon={<Calendar size={20} />} label="Projects & Calendar" />
+  </div>
+</Link>
       <SidebarItem icon={<Clock size={20} />} label="Compliance & Audit" />
-      <SidebarItem icon={<DollarSign size={20} />} label="Nova Document Hub" />
-      <SidebarItem icon={<Award size={20} />} label="Support" />
+ <Link href="/Nova">
+  <SidebarItem icon={<DollarSign size={20} />} label="Nova Document Hub" />
+</Link>
+<Link href="/Support">
+  <SidebarItem icon={<Award size={20} />} label="Support" />
+</Link>
       <SidebarItem icon={<MoreHorizontal size={20} />} label="Settings" />
        {/* Active Agents Section */}
 <div className="mt-6">
         <h4 className="text-sm font-semibold text-gray-600 mb-3">Active Agents</h4>
-        <Agent icon={<UserPlus size={16} className="text-blue-600" />} name="Optimus" dotColor="bg-green-500" />
+<Link href="/optimus-dashboard">
+  <div>
+    <Agent
+      icon={<UserPlus size={16} className="text-blue-600" />}
+      name="Optimus"
+      dotColor="bg-green-500"
+    />
+  </div>
+</Link>
         <Agent icon={<Clock size={16} className="text-red-500" />} name="Maxi" dotColor="bg-green-500" />
         <Agent icon={<Wallet size={16} className="text-amber-700" />} name="Laxmi" dotColor="bg-orange-400" />
         <Agent icon={<FileText size={16} className="text-purple-600" />} name="Nova" dotColor="bg-red-500" />
@@ -1151,19 +1190,30 @@ Senior HR Business Partner
 
         {/* Search + Bell + Profile */}   
 <div className="flex items-center space-x-4">
-  <input
-    type="text"
-    placeholder="Search..."
-    className="px-3 py-1 border rounded-md text-sm bg-orange-500 placeholder-gray-800 hover:text-orange-800"
-  />
+  <div className="relative">
+    <input
+      type="text"
+      placeholder="Search..."
+      className="pl-9 pr-3 py-1 w-64 border-2 border-orange-500 rounded-md text-sm bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition duration-200"
+    />
+    <svg
+      className="absolute left-2 top-1/2 transform -translate-y-1/2 text-orange-500 w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+    </svg>
+  </div>
   <Bell className="text-gray-600 w-5 h-5 cursor-pointer hover:text-orange-800" />
-  {/* <BarChart3 className="text-gray-600 w-5 h-5" /> */}
   <img
     src="https://ui-avatars.com/api/?name=Aiden+Max"
     alt="Profile"
     className="w-8 h-8 rounded-full"
   />
 </div>
+
       </header>
 
       {/* ORIGINAL CONTENT RENDERING */}
