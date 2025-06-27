@@ -60,7 +60,7 @@ import {
 function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-      <div className="text-black">{icon}</div>
+      <div className="text-orange-500 group-hover:text-white">{icon}</div>
       <span className="text-sm font-medium">{label}</span>
     </div>
   );
@@ -1115,7 +1115,7 @@ Senior HR Business Partner
     alt="Zordie Logo"
     className="w-12 h-11"
   />
-  <h1 className="text-2xl font-bold text-orange-600">ZORDIE</h1>
+  <h1 className="text-2xl font-bold text-black-600">ZORDIE</h1>
 </div>
 
       <nav className="flex-1 px-4 py-6 space-y-3 text-gray-700">
@@ -1137,7 +1137,7 @@ Senior HR Business Partner
       <SidebarItem icon={<User size={20} />} label="Agent Management" />
 <Link href="/CalendarPage">
   <div>
-    <SidebarItem icon={<Calendar size={20} />} label="Projects & Calendar" />
+    <SidebarItem icon={<Calendar size={20} />} label="Schedule" />
   </div>
 </Link>
       <SidebarItem icon={<Clock size={20} />} label="Compliance & Audit" />
@@ -1147,7 +1147,13 @@ Senior HR Business Partner
 <Link href="/Support">
   <SidebarItem icon={<Award size={20} />} label="Support" />
 </Link>
-      <SidebarItem icon={<MoreHorizontal size={20} />} label="Settings" />
+<div
+  onClick={() => handleSidebarClick("Settings")}
+  className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
+>
+  <Settings size={18} className="text-orange-500" /> <span>Settings</span>
+</div>
+
        {/* Active Agents Section */}
 <div className="mt-6">
         <h4 className="text-sm font-semibold text-gray-600 mb-3">Active Agents</h4>

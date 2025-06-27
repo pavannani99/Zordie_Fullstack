@@ -106,7 +106,7 @@ export default function CalendarPage() {
             </div>
           </Link>
           <Link href="/">
-            <div className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-gradient-to-r hover:from-[#FF4B00] hover:to-[#FFA500] hover:text-white cursor-pointer">
+            <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
               <Calendar size={20} /> <span>Schedule</span>
             </div>
           </Link>

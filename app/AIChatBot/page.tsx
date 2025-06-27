@@ -35,13 +35,13 @@ const AIChatBot = () => {
     }, 1000);
   };
 
-  const sidebarItems = [
-    { icon: <BookOpen size={18} />, label: "AI Chat" },
-    { icon: <FileText size={18} />, label: "Projects" },
-    { icon: <Users size={18} />, label: "Community" },
-    { icon: <Clock size={18} />, label: "History" },
-    { icon: <HelpCircle size={18} />, label: "Help" },
-  ];
+const sidebarItems = [
+  { icon: <BookOpen size={18} className="text-orange-500" />, label: "AI Chat" },
+  { icon: <FileText size={18} className="text-orange-500" />, label: "Projects" },
+  { icon: <Users size={18} className="text-orange-500" />, label: "Community" },
+  { icon: <Clock size={18} className="text-orange-500" />, label: "History" },
+  { icon: <HelpCircle size={18} className="text-orange-500" />, label: "Help" },
+];
 
   const handleSidebarClick = (label: string) => {
     alert(`You clicked on: ${label}`);
@@ -55,7 +55,7 @@ const AIChatBot = () => {
 <Link href="/">
   <div className="flex items-center space-x-2 mb-6 cursor-pointer">
     <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-    <h2 className="text-orange-600 font-bold text-xl">ZORDIE</h2>
+    <h2 className="text-black font-bold text-xl">ZORDIE</h2>
   </div>
 </Link>
           <nav className="space-y-4">
@@ -71,12 +71,13 @@ const AIChatBot = () => {
           </nav>
         </div>
         <div>
-          <div
-            onClick={() => handleSidebarClick("Settings")}
-            className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
-          >
-            <Settings size={18} /> <span>Settings</span>
-          </div>
+<div
+  onClick={() => handleSidebarClick("Settings")}
+  className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
+>
+  <Settings size={18} className="text-orange-500" /> <span>Settings</span>
+</div>
+
           <div className="flex items-center gap-3">
             <img
               src="https://ui-avatars.com/api/?name=User"
