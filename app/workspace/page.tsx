@@ -37,7 +37,7 @@ import {
 function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-      <span>{icon}</span>
+      <div className="text-orange-500 group-hover:text-white">{icon}</div>
       <span className="font-medium">{label}</span>
     </div>
   );
@@ -128,7 +128,7 @@ export default function WorkspaceDashboard() {
 <Link href="/">
   <div className="flex items-center space-x-2 mb-6 cursor-pointer">
     <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-    <h2 className="text-orange-600 font-bold text-xl">ZORDIE</h2>
+    <h2 className="text-black font-bold text-xl">ZORDIE</h2>
   </div>
 </Link>
 
@@ -137,12 +137,20 @@ export default function WorkspaceDashboard() {
   <SidebarItem icon={<LayoutDashboard size={20} />} label="Dashboard" />
 </Link>
           <SidebarItem icon={<FileText size={20} />} label="Assignments" />
-          <SidebarItem icon={<Calendar size={20} />} label="Schedule" />
-          <SidebarItem icon={<PlayCircle size={20} />} label="Recordings" />
+          <Link href="/CalendarPage">
+            <div>
+              <SidebarItem icon={<Calendar size={20} />} label="Schedule" />
+            </div>
+          </Link>
+          <Link href="/recording">
+  <SidebarItem icon={<PlayCircle size={20} />} label="Recordings" />
+</Link>
           <SidebarItem icon={<MessageSquare size={20} />} label="Discussions" />
-          <SidebarItem icon={<BookOpen size={20} />} label="Notes" />
+          <Link href="/Notes">
+  <SidebarItem icon={<BookOpen size={20} />} label="Notes" />
+</Link>
           <SidebarItem icon={<Users size={20} />} label="Agents" />
-          <SidebarItem icon={<GraduationCap size={20} />} label="Classes & Courses" />
+          {/* <SidebarItem icon={<GraduationCap size={20} />} label="Classes & Courses" /> */}
           <SidebarItem icon={<CheckCircle size={20} />} label="RBAC Role Manager" />
           <SidebarItem icon={<DollarSign size={20} />} label="Nova Document Hub" />
           <SidebarItem icon={<Award size={20} />} label="Support" />

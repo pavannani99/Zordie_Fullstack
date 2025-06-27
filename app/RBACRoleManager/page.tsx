@@ -14,15 +14,14 @@ export default function RBACRoleManager() {
         <Link href="/">
           <div className="flex items-center space-x-2 mb-6 cursor-pointer">
             <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-            <h2 className="text-orange-600 font-bold text-xl">ZORDIE</h2>
+            <h2 className="text-black font-bold text-xl">ZORDIE</h2>
           </div>
         </Link>
 
- <nav className="space-y-2 text-gray-700 font-medium">
+<nav className="space-y-2 text-gray-700 font-medium">
   {[
-    { icon: FileText, label: "Dashboard" },
-    { icon: PlayCircle, label: "Prime Copilot" },
-    // { icon: Shield, label: "RBAC Role Manager", active: true },
+    { icon: FileText, label: "Dashboard", href: "/" },
+    { icon: PlayCircle, label: "Prime Copilot", href: "/AIChatBot" }, // ✅ This is the key update
     { icon: Users, label: "Agent Management" },
     { icon: Calendar, label: "Analytics & Reporting" },
     { icon: MessageSquare, label: "Projects & Calendar" },
@@ -30,21 +29,29 @@ export default function RBACRoleManager() {
     { icon: FileText, label: "Nova Document Hub" },
     { icon: MessageSquare, label: "Helpdesk & Support" },
     { icon: Settings, label: "System Settings" },
-  ].map(({ icon: Icon, label, active }) => (
-    <div
-      key={label}
-      className={`flex items-center space-x-3 px-3 py-2 rounded-md cursor-pointer transition duration-300 ${
-        active
-          ? "bg-gradient-to-r from-[#2563eb] to-[#60a5fa] text-white font-semibold"
-          : "hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
-      }`}
-    >
-      <Icon size={20} />
-      <span>{label}</span>
-    </div>
-  ))}
-</nav>
+  ].map(({ icon: Icon, label, active, href }) => {
+    const content = (
+      <div
+        className={`flex items-center space-x-3 px-3 py-2 rounded-md cursor-pointer transition duration-300 ${
+          active
+            ? "bg-gradient-to-r from-[#2563eb] to-[#60a5fa] text-white font-semibold"
+            : "hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
+        }`}
+      >
+        <Icon size={20} className="text-orange-500" />
+        <span>{label}</span>
+      </div>
+    );
 
+    return href ? (
+      <Link href={href} key={label}>
+        {content}
+      </Link>
+    ) : (
+      <div key={label}>{content}</div>
+    );
+  })}
+</nav>
 
         {/* Active Agents */}
 {/* Active Agents */}
