@@ -151,9 +151,15 @@ export default function WorkspaceDashboard() {
 </Link>
           <SidebarItem icon={<Users size={20} />} label="Agents" />
           {/* <SidebarItem icon={<GraduationCap size={20} />} label="Classes & Courses" /> */}
-          <SidebarItem icon={<CheckCircle size={20} />} label="RBAC Role Manager" />
-          <SidebarItem icon={<DollarSign size={20} />} label="Nova Document Hub" />
-          <SidebarItem icon={<Award size={20} />} label="Support" />
+          <Link href="/RBACRoleManager">
+  <SidebarItem icon={<CheckCircle size={20} />} label="RBAC Role Manager" />
+</Link>
+           <Link href="/Nova">
+  <SidebarItem icon={<DollarSign size={20} />} label="Nova Document Hub" />
+</Link>
+          <Link href="/Support">
+  <SidebarItem icon={<Award size={20} />} label="Support" />
+</Link>
           <SidebarItem icon={<Settings size={20} />} label="Settings" />
         </div>
       </div>

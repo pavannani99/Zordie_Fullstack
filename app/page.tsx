@@ -69,9 +69,10 @@ function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) 
 function Agent({ icon, name, dotColor }) {
   return (
     <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-      <div className="w-4">{icon}</div>
-      <span className="text-sm font-medium">{name}</span>
-      <span className={`w-2 h-2 rounded-full ${dotColor} ml-auto`}></span>
+    <div className="w-4">{icon}</div>
+<span className="text-sm font-medium">{name}</span>
+<span className={`w-2 h-2 rounded-full ${dotColor} ml-auto`}></span>
+
     </div>
   );
 }
