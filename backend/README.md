@@ -3,6 +3,9 @@
 This is the FastAPI backend for the Zodie application, using NeonDB PostgreSQL for database storage. The backend provides authentication with JWT tokens and integration with Clerk authentication, as well as zodiac sign data and horoscope functionality.
 
 ## Setup Instructions
+python -m venv venv
+venv\Scripts\activate
+
 
 1. **Set up environment variables**
 
