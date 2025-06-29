@@ -36,9 +36,9 @@ import {
 // Sidebar Item component
 function SidebarItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+    <div className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
       <div className="text-orange-500 group-hover:text-white">{icon}</div>
-      <span className="font-medium">{label}</span>
+      <span className="text-base font-medium">{label}</span>
     </div>
   );
 }
@@ -127,8 +127,8 @@ export default function WorkspaceDashboard() {
 
 <Link href="/">
   <div className="flex items-center space-x-2 mb-6 cursor-pointer">
-    <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-    <h2 className="text-black font-bold text-xl">ZORDIE</h2>
+    <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-13 h-12" />
+    <h2 className="text-black font-bold text-2xl">ZORDIE</h2>
   </div>
 </Link>
 
