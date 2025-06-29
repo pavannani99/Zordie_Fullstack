@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Bell, FileText, Calendar, PlayCircle, MessageSquare, BookOpen, Users, GraduationCap, CheckCircle, DollarSign, Settings } from "lucide-react";
 
+
 const helpQueries = [
   {
     name: "Roselle Ehrman",
@@ -67,8 +68,8 @@ export default function HelpdeskSupport() {
       <div className="w-64 bg-white shadow-md p-4">
         <Link href="/">
           <div className="flex items-center space-x-2 mb-6 cursor-pointer">
-            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-            <h2 className="text-black font-bold text-xl">ZORDIE</h2>
+            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-13 h-12" />
+            <h2 className="text-black font-bold text-2xl">ZORDIE</h2>
           </div>
         </Link>
 
@@ -87,20 +88,23 @@ export default function HelpdeskSupport() {
             </div>
           </Link>
 
+          <Link href="/recording">
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <PlayCircle size={20} className="text-orange-500" />
             <span>Recordings</span>
           </div>
+          </Link>
 
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <MessageSquare size={20} className="text-orange-500" />
             <span>Discussions</span>
           </div>
-
+          <Link href="/Notes">
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <BookOpen size={20} className="text-orange-500" />
             <span>Notes</span>
           </div>
+          </Link>
 
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <Users size={20} className="text-orange-500" />
@@ -111,16 +115,18 @@ export default function HelpdeskSupport() {
             <GraduationCap size={20} className="text-orange-500" />
             <span>Classes & Courses</span>
           </div>
-
+           <Link href="/RBACRoleManager">
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <CheckCircle size={20} className="text-orange-500" />
             <span>RBAC Role Manager</span>
           </div>
-
+          </Link>
+          <Link href="/Nova">
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <DollarSign size={20} className="text-orange-500" />
             <span>Nova Document Hub</span>
           </div>
+          </Link>
 
           <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
             <Settings size={20} className="text-orange-500" />

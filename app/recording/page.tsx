@@ -61,12 +61,12 @@ export default function RecordingsPage() {
         </Link>
         <div className="space-y-2 text-gray-700 font-medium">
           {[{ icon: FileText, label: "Workspace", href: "/workspace" },
-            { icon: Calendar, label: "Schedule" },
+            { icon: Calendar, label: "Schedule", href: "/CalendarPage" },
             // { icon: PlayCircle, label: "Recordings"},
             { icon: MessageSquare, label: "Discussions" },
             { icon: BookOpen, label: "Notes" },
             { icon: Users, label: "Agents" },
-            { icon: GraduationCap, label: "Classes" },
+             { icon: GraduationCap, label: "Classes", href: "/recording" },
             { icon: CheckCircle, label: "Courses" },
             { icon: DollarSign, label: "Payments" },
             { icon: Settings, label: "Settings" }].map(({ icon: Icon, label, active }) => (

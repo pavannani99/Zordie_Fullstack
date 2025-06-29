@@ -72,7 +72,7 @@ export default function NotesPage() {
         </Link>
         <div className="space-y-2 text-gray-700 font-medium">
         {[
-  { icon: FileText, label: "Assignments", href: "/Assignments" },
+  { icon: FileText, label: "Workspace", href: "/workspace" },
   { icon: Calendar, label: "Schedule", href: "/CalendarPage" },
   { icon: PlayCircle, label: "Recordings", href: "/Recordings" },
   { icon: MessageSquare, label: "Discussions", href: "/Discussions" },

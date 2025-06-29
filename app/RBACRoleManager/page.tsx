@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Bell, FileText, Calendar, PlayCircle, MessageSquare, BookOpen, Users, Settings, Shield } from "lucide-react";
+import { Bell, FileText, Calendar, PlayCircle, MessageSquare, BookOpen, Users, Settings, Shield,Bot,ChartBar } from "lucide-react";
 import Link from "next/link";
 import { User, Clock, Brain } from "lucide-react";
 
@@ -13,35 +13,36 @@ export default function RBACRoleManager() {
       <aside className="w-64 bg-white shadow-md p-4">
         <Link href="/">
           <div className="flex items-center space-x-2 mb-6 cursor-pointer">
-            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-            <h2 className="text-black font-bold text-xl">ZORDIE</h2>
+            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-13 h-12" />
+            <h2 className="text-black font-bold text-2xl">ZORDIE</h2>
           </div>
         </Link>
 
 <nav className="space-y-2 text-gray-700 font-medium">
   {[
     { icon: FileText, label: "Dashboard", href: "/" },
-    { icon: PlayCircle, label: "Prime Copilot", href: "/AIChatBot" }, // ✅ This is the key update
+    { icon: Bot, label: "Prime Copilot", href: "/AIChatBot" }, // ✅ This is the key update
     { icon: Users, label: "Agent Management" },
-    { icon: Calendar, label: "Analytics & Reporting" },
-    { icon: MessageSquare, label: "Projects & Calendar" },
+    { icon: ChartBar, label: "Analytics & Reporting", href:"/Analytics&Reporting" },
+    { icon: Calendar, label: "Projects & Calendar", href:"/CalendarPage" },
     { icon: BookOpen, label: "Compliance & Audit" },
-    { icon: FileText, label: "Nova Document Hub" },
-    { icon: MessageSquare, label: "Helpdesk & Support" },
+    { icon: FileText, label: "Nova Document Hub",href:"/Nova" },
+    { icon: Shield, label: "Helpdesk & Support",href:"/Support" },
     { icon: Settings, label: "System Settings" },
   ].map(({ icon: Icon, label, active, href }) => {
-    const content = (
-      <div
-        className={`flex items-center space-x-3 px-3 py-2 rounded-md cursor-pointer transition duration-300 ${
-          active
-            ? "bg-gradient-to-r from-[#2563eb] to-[#60a5fa] text-white font-semibold"
-            : "hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
-        }`}
-      >
-        <Icon size={20} className="text-orange-500" />
-        <span>{label}</span>
-      </div>
-    );
+const content = (
+  <div
+    className={`group flex items-center space-x-3 px-3 py-2 rounded-md cursor-pointer transition duration-300 ${
+      active
+        ? "bg-gradient-to-r from-[#2563eb] to-[#60a5fa] text-white font-semibold"
+        : "hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
+    }`}
+  >
+    <Icon size={20} className="text-orange-500 group-hover:text-white" />
+    <span>{label}</span>
+  </div>
+);
+
 
     return href ? (
       <Link href={href} key={label}>

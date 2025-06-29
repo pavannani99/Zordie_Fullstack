@@ -43,33 +43,37 @@ export default function HomePage() {
 
 <nav className="flex-1 px-4 py-6 space-y-3 text-gray-700">
   <Link href="/">
-    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-      <LayoutDashboard size={20} className="text-orange-500" />
+    <div className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+      <LayoutDashboard size={20} className="text-orange-500 group-hover:text-white" />
       <span>Dashboard</span>
     </div>
   </Link>
+  
   <Link href="/workspace">
-    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-      <FileText size={20} className="text-orange-500" />
+    <div className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+      <FileText size={20} className="text-orange-500 group-hover:text-white" />
       <span>Workspace</span>
     </div>
   </Link>
+  
   <Link href="/CalendarPage">
-    <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-      <Calendar size={20} className="text-orange-500" />
-      <span>Projects & Calendar</span>
+    <div className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+      <Calendar size={20} className="text-orange-500 group-hover:text-white" />
+      <span>Schedule</span>
     </div>
   </Link>
-          <Link href="/settings">
-<div
-  onClick={() => handleSidebarClick("Settings")}
-  className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
->
-  <Settings size={18} className="text-orange-500" />
-  <span>Settings</span>
-</div>
-          </Link>
-        </nav>
+  
+  <Link href="/settings">
+    <div
+      onClick={() => handleSidebarClick("Settings")}
+      className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white"
+    >
+      <Settings size={18} className="text-orange-500 group-hover:text-white" />
+      <span>Settings</span>
+    </div>
+  </Link>
+</nav>
+
       </aside>
 
       {/* Main Content */}
