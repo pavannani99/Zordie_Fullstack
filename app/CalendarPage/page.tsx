@@ -95,22 +95,25 @@ export default function CalendarPage() {
       <div className="w-64 bg-white shadow-md p-4">
         <Link href="/">
           <div className="flex items-center space-x-2 mb-6 cursor-pointer">
-            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-            <h2 className="text-orange-600 font-bold text-xl">ZORDIE</h2>
+            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-13 h-12" />
+            <h2 className="text-black font-bold text-2xl">ZORDIE</h2>
           </div>
         </Link>
-        <div className="space-y-2">
-          <Link href="/">
-            <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-              <LayoutDashboard size={20} /> <span>Dashboard</span>
-            </div>
-          </Link>
-          <Link href="/">
-            <div className="flex items-center space-x-3 px-3 py-2 rounded-md hover:bg-gradient-to-r hover:from-[#FF4B00] hover:to-[#FFA500] hover:text-white cursor-pointer">
-              <Calendar size={20} /> <span>Schedule</span>
-            </div>
-          </Link>
-        </div>
+<div className="space-y-2">
+  <Link href="/">
+    <div className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+      <LayoutDashboard size={20} className="text-orange-500 group-hover:text-white" />
+      <span>Dashboard</span>
+    </div>
+  </Link>
+  <Link href="/">
+    <div className="group flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+      <Calendar size={20} className="text-orange-500 group-hover:text-white" />
+      <span>Schedule</span>
+    </div>
+  </Link>
+</div>
+
       </div>
 
       {/* Main Content */}

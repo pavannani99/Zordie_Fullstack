@@ -7,7 +7,7 @@ import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveCo
 
 const SidebarItem = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
   <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <span>{icon}</span>
+    <div className="text-orange-500 group-hover:text-white">{icon}</div>
     <span className="font-medium text-sm">{label}</span>
   </div>
 );
@@ -64,8 +64,8 @@ const OptimusDashboard = () => {
       <aside className="w-64 bg-white shadow-md p-4">
         <Link href="/">
           <div className="flex items-center space-x-2 mb-6">
-            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-10 h-10" />
-            <h2 className="text-orange-600 font-bold text-xl">Zordie</h2>
+            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-13" />
+            <h2 className="text-black font-bold text-xl">Zordie</h2>
           </div>
         </Link>
         <nav className="space-y-2">
@@ -73,9 +73,15 @@ const OptimusDashboard = () => {
   <SidebarItem icon={<LayoutDashboard size={20} />} label="Dashboard" />
 </Link>
           <SidebarItem icon={<FileText size={20} />} label="Inbox" />
-          <SidebarItem icon={<Calendar size={20} />} label="Calendar" />
+          <Link href="/CalendarPage">
+  <div>
+    <SidebarItem icon={<Calendar size={20} />} label="Schedule" />
+  </div>
+</Link>
           <SidebarItem icon={<FileText size={20} />} label="Jobs" />
-          <SidebarItem icon={<Users size={20} />} label="Candidates" />
+          <Link href="/candidate-dashboard">
+  <SidebarItem icon={<Users size={20} />} label="Candidates" />
+</Link>
           <SidebarItem icon={<FileText size={20} />} label="Recruitment Board" />
           <SidebarItem icon={<CheckCircle size={20} />} label="Offers" />
           <SidebarItem icon={<DollarSign size={20} />} label="Onboarding" />
@@ -95,8 +101,8 @@ const OptimusDashboard = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search candidates, vacancy, etc"
-                className="pl-10 pr-4 py-2 w-64 border border-gray-300 rounded-md text-sm focus:outline-orange-500"
+                placeholder="Search..."
+                className="pl-10 pr-4 py-2 w-64 border border-orange-500 rounded-md text-sm focus:outline-orange-500"
               />
               <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

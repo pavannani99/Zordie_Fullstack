@@ -1,21 +1,8 @@
 "use client";
 
 import React from "react";
-import { Bell } from "lucide-react";
 import Link from "next/link";
-import {
-  FileText,
-  Calendar,
-  PlayCircle,
-  MessageSquare,
-  BookOpen,
-  Users,
-  GraduationCap,
-  CheckCircle,
-  DollarSign,
-  Award,
-  Settings,
-} from "lucide-react";
+import { Bell, FileText, Calendar, PlayCircle, MessageSquare, BookOpen, Users, GraduationCap, CheckCircle, DollarSign, Settings } from "lucide-react";
 
 
 const helpQueries = [
@@ -81,106 +68,110 @@ export default function HelpdeskSupport() {
       <div className="w-64 bg-white shadow-md p-4">
         <Link href="/">
           <div className="flex items-center space-x-2 mb-6 cursor-pointer">
-            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-12 h-11" />
-            <h2 className="text-orange-600 font-bold text-xl">ZORDIE</h2>
+            <img src="/assets/zordie-logo.png" alt="Zordie Logo" className="w-13 h-12" />
+            <h2 className="text-black font-bold text-2xl">ZORDIE</h2>
           </div>
         </Link>
-<div className="space-y-2 text-gray-700 font-medium">
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <FileText size={20} />
-    <span>Assignments</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <Calendar size={20} />
-    <span>Schedule</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <PlayCircle size={20} />
-    <span>Recordings</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <MessageSquare size={20} />
-    <span>Discussions</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <BookOpen size={20} />
-    <span>Notes</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <Users size={20} />
-    <span>Agents</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <GraduationCap size={20} />
-    <span>Classes & Courses</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <CheckCircle size={20} />
-    <span>RBAC Role Manager</span>
-  </div>
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <DollarSign size={20} />
-    <span>Nova Document Hub</span>
-  </div>
-  {/* <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md bg-gradient-to-r from-[#2563eb] to-[#60a5fa] text-white font-bold">
-    <Award size={20} />
-    <span>Support</span>
-  </div> */}
-  <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
-    <Settings size={20} />
-    <span>Settings</span>
-  </div>
-</div>
-</div>
+
+        <div className="space-y-2 text-gray-700 font-medium">
+          <Link href="/">
+            <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+              <FileText size={20} className="text-orange-500" />
+              <span>Dashboard</span>
+            </div>
+          </Link>
+
+          <Link href="/CalendarPage">
+            <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+              <Calendar size={20} className="text-orange-500" />
+              <span>Scheduling</span>
+            </div>
+          </Link>
+
+          <Link href="/recording">
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <PlayCircle size={20} className="text-orange-500" />
+            <span>Recordings</span>
+          </div>
+          </Link>
+
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <MessageSquare size={20} className="text-orange-500" />
+            <span>Discussions</span>
+          </div>
+          <Link href="/Notes">
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <BookOpen size={20} className="text-orange-500" />
+            <span>Notes</span>
+          </div>
+          </Link>
+
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <Users size={20} className="text-orange-500" />
+            <span>Agents</span>
+          </div>
+
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <GraduationCap size={20} className="text-orange-500" />
+            <span>Classes & Courses</span>
+          </div>
+           <Link href="/RBACRoleManager">
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <CheckCircle size={20} className="text-orange-500" />
+            <span>RBAC Role Manager</span>
+          </div>
+          </Link>
+          <Link href="/Nova">
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <DollarSign size={20} className="text-orange-500" />
+            <span>Nova Document Hub</span>
+          </div>
+          </Link>
+
+          <div className="flex items-center space-x-3 cursor-pointer px-3 py-2 rounded-md transition duration-300 hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#60a5fa] hover:text-white">
+            <Settings size={20} className="text-orange-500" />
+            <span>Settings</span>
+          </div>
+        </div>
+      </div>
 
       {/* Main Content */}
       <div className="flex-1 p-6">
         {/* Top Section */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800">Get the help you need</h1>
- <div className="flex items-center space-x-4">
-   <div className="relative">
-     <input
-       type="text"
-       placeholder="Search..."
-       className="pl-9 pr-3 py-1 w-64 border-2 border-orange-500 rounded-md text-sm bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition duration-200"
-     />
-     <svg
-       className="absolute left-2 top-1/2 transform -translate-y-1/2 text-orange-500 w-4 h-4"
-       fill="none"
-       stroke="currentColor"
-       strokeWidth={2}
-       viewBox="0 0 24 24"
-     >
-       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-     </svg>
-   </div>
-   <Bell className="text-gray-600 w-5 h-5 cursor-pointer hover:text-orange-800" />
-   <img
-     src="https://ui-avatars.com/api/?name=Aiden+Max"
-     alt="Profile"
-     className="w-8 h-8 rounded-full"
-   />
- 
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="pl-9 pr-3 py-1 w-64 border-2 border-orange-500 rounded-md text-sm bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition duration-200"
+              />
+              <svg
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 text-orange-500 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+              </svg>
+            </div>
+            <Bell className="text-gray-600 w-5 h-5 cursor-pointer hover:text-orange-800" />
+            <img src="https://ui-avatars.com/api/?name=Aiden+Max" alt="Profile" className="w-8 h-8 rounded-full" />
           </div>
         </div>
 
         {/* Query Categories */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {[
-            "Getting Started",
-            "Security and Protection",
-            "Troubleshooting & Support",
-          ].map((title) => (
+          {["Getting Started", "Security and Protection", "Troubleshooting & Support"].map((title) => (
             <div
               key={title}
               className="bg-white rounded-lg shadow-md p-6 text-center border hover:shadow-lg transition duration-300"
             >
               <div className="text-4xl mb-2 text-blue-600">👤</div>
               <h3 className="font-semibold text-lg mb-1">{title}</h3>
-              <button className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
-                View All
-              </button>
+              <button className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full">View All</button>
             </div>
           ))}
         </div>
@@ -189,9 +180,7 @@ export default function HelpdeskSupport() {
         <div className="bg-white p-6 rounded-lg shadow-md mb-8">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-semibold text-xl">Help Queries</h2>
-            <button className="bg-cyan-600 text-white px-4 py-1 rounded-md hover:bg-cyan-700">
-              New Help Query
-            </button>
+            <button className="bg-cyan-600 text-white px-4 py-1 rounded-md hover:bg-cyan-700">New Help Query</button>
           </div>
           <table className="w-full text-sm">
             <thead className="text-left text-gray-600 border-b">
@@ -210,9 +199,7 @@ export default function HelpdeskSupport() {
                   </td>
                   <td>{query.subject}</td>
                   <td>
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-semibold inline-block ${statusColors[query.status]}`}
-                    >
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold inline-block ${statusColors[query.status]}`}>
                       {query.status}
                     </span>
                   </td>

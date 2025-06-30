@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    description="Zodie API - A modern astrological application",
+    description="Zodie API - AI STARTUP",
     version=settings.VERSION,
     openapi_url=f"{settings.API_V1_STR}/openapi.json" if settings.ENVIRONMENT != "production" else None,
     docs_url=None if settings.ENVIRONMENT == "production" else "/docs",
